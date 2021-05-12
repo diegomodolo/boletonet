@@ -115,6 +115,7 @@
     <Compile Include="Boleto\Carteira\Carteira_CrediSIS.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Nordeste.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Itau.cs" />
+    <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Santander.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicoob.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicredi.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Banestes.cs" />
