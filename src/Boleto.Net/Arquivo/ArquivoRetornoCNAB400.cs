@@ -32,36 +32,36 @@ namespace BoletoNet
 
         #endregion
 
-        #region Métodos de instância
+        #region MÃ©todos de instÃ¢ncia
 
         public override void LerArquivoRetorno(IBanco banco, Stream arquivo)
         {
             try
             {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
-                // Identificação do registro detalhe
+                // IdentificaÃ§Ã£o do registro detalhe
                 List<string> IdsRegistroDetalhe = new List<string>();
 
                 // Lendo o arquivo
                 string linha = stream.ReadLine();
                 this.HeaderRetorno = banco.LerHeaderRetornoCNAB400(linha);
 
-                // Próxima linha (DETALHE)
+                // PrÃ³xima linha (DETALHE)
                 linha = stream.ReadLine();
 
-                //tem arquivo de retorno que possui somente cabeçalho
+                //tem arquivo de retorno que possui somente cabeÃ§alho
                 if (linha != null)
                 {
                     switch (banco.Codigo)
                     {
-                        // 85 - CECRED - Código de registro detalhe 7 para CECRED
+                        // 85 - CECRED - CÃ³digo de registro detalhe 7 para CECRED
                         case (int)Bancos.CECRED:
                             IdsRegistroDetalhe.Add("7");
                             break;
-                        // 1 - Banco do Brasil- Código de registro detalhe 7 para convênios com 7 posições, e detalhe 1 para convênios com 6 posições(colocado as duas, pois não interferem em cada tipo de arquivo)
+                        // 1 - Banco do Brasil- CÃ³digo de registro detalhe 7 para convÃªnios com 7 posiÃ§Ãµes, e detalhe 1 para convÃªnios com 6 posiÃ§Ãµes(colocado as duas, pois nÃ£o interferem em cada tipo de arquivo)
                         case (int)Bancos.BancoBrasil:
-                            IdsRegistroDetalhe.Add("1");//Para convênios de 6 posições
-                            IdsRegistroDetalhe.Add("7");//Para convênios de 7 posições
+                            IdsRegistroDetalhe.Add("1");//Para convÃªnios de 6 posiÃ§Ãµes
+                            IdsRegistroDetalhe.Add("7");//Para convÃªnios de 7 posiÃ§Ãµes
                             break;
                         default:
                             IdsRegistroDetalhe.Add("1");

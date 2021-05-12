@@ -50,7 +50,7 @@ namespace BoletoNet
 
         #endregion
 
-        # region MÈtodos Privados
+        # region M√©todos Privados
 
         private void InstanciaCodigoMovimento(int codigoBanco, int codigoMovimento)
         {
@@ -66,7 +66,7 @@ namespace BoletoNet
                     case 104:
                         _ICodigoMovimento = new CodigoMovimento_Caixa(codigoMovimento);
                         break;
-                    //341 - Ita˙
+                    //341 - Ita√∫
                     case 341:
                         _ICodigoMovimento = new CodigoMovimento_Itau(codigoMovimento);
                         break;
@@ -77,31 +77,31 @@ namespace BoletoNet
                     //356 - Real
                     case 356:
                         //_ICodigoMovimento = new CodigoMovimento_Real();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //422 - Safra
                     case 422:
                         //_ICodigoMovimento = new CodigoMovimento_Safra();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //237 - Bradesco
                     case 237:
                         //_ICodigoMovimento = new CodigoMovimento_Bradesco();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //347 - Sudameris
                     case 347:
                         //_ICodigoMovimento = new CodigoMovimento_Sudameris();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //353 - Santander
                     case 353:
                         //_ICodigoMovimento = new CodigoMovimento_Santander();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //070 - BRB
                     case 70:
                         //_ICodigoMovimento = new CodigoMovimento_BRB();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     //479 - BankBoston
                     case 479:
                         //_ICodigoMovimento = new CodigoMovimento_BankBoston();
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                     // 85 - CECRED
                     case 85:
                         _ICodigoMovimento = new CodigoMovimento_Cecred(codigoMovimento);
@@ -113,13 +113,17 @@ namespace BoletoNet
                     case 756:
                         _ICodigoMovimento = new CodigoMovimento_Sicoob(codigoMovimento);
                         break;
+                    case 33:
+                        // SANTANDER
+                        this._ICodigoMovimento = new CodigoMovimento_Santander(codigoMovimento);
+                        break;
                     default:
-                        throw new Exception("CÛdigo do banco n„o implementando: " + codigoBanco);
+                        throw new Exception("C√≥digo do banco n√£o implementando: " + codigoBanco);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro durante a execuÁ„o da transaÁ„o.", ex);
+                throw new Exception("Erro durante a execu√ß√£o da transa√ß√£o.", ex);
             }
         }
 
