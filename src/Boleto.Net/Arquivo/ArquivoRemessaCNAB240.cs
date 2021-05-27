@@ -83,7 +83,7 @@ namespace BoletoNet
                     OnLinhaGerada(null, strline, EnumTipodeLinha.HeaderDeLote);
                     numeroRegistro++;
                 }
-                
+
 
                 if (banco.Codigo == 341)
                 {
@@ -136,7 +136,7 @@ namespace BoletoNet
                     #endregion
                 }
                 else if (banco.Codigo == 104) // Só validar boleto.Remessa quando o banco for Caixa porque quando o banco for diferente de 104 a propriedade "Remessa" fica null
-                {                    
+                {
                     #region se Banco Caixa - 104 e tipo de arquivo da remessa SIGCB
                     if ((boletos[0].Remessa.TipoDocumento.Equals("2")) || boletos[0].Remessa.TipoDocumento.Equals("1"))
                     {
@@ -257,13 +257,67 @@ namespace BoletoNet
 
                     }
                     numeroRegistro++;
-                
-                    strline = banco.GerarTrailerRemessaComDetalhes(numeroRegistro, boletos.Count,  TipoArquivo.CNAB240, cedente, totalTitulos);
+
+                    strline = banco.GerarTrailerRemessaComDetalhes(numeroRegistro, boletos.Count, TipoArquivo.CNAB240, cedente, totalTitulos);
                     incluiLinha.WriteLine(strline);
                     OnLinhaGerada(null, strline, EnumTipodeLinha.TraillerDeArquivo);
 
                     incluiLinha.Close();
 
+                }
+                else if (banco.Codigo == 748) //Sicredi
+                {
+                    #region se Banco Sicredi - 748
+                    foreach (Boleto boleto in boletos)
+                    {
+                        boleto.Banco = banco;
+                        boleto.Remessa.NumeroLote = numeroArquivoRemessa;
+
+                        strline = boleto.Banco.GerarDetalheSegmentoPRemessa(boleto, numeroRegistroDetalhe, numeroConvenio);
+
+                        incluiLinha.WriteLine(strline);
+                        OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoP);
+                        numeroRegistro++;
+                        numeroRegistroDetalhe++;
+
+                        if (boletos[0].Remessa.CodigoOcorrencia == "01")
+                        {
+                            strline = boleto.Banco.GerarDetalheSegmentoQRemessa(boleto, numeroRegistroDetalhe, TipoArquivo.CNAB240);
+                            incluiLinha.WriteLine(strline);
+                            OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoQ);
+                            numeroRegistro++;
+                            numeroRegistroDetalhe++;
+
+                            if (boleto.ValorMulta > 0 || boleto.OutrosDescontos > 0 || boleto.PercMulta > 0)
+                            {
+                                strline = boleto.Banco.GerarDetalheSegmentoRRemessa(boleto, numeroRegistroDetalhe, TipoArquivo.CNAB240);
+                                incluiLinha.WriteLine(strline);
+                                OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoR);
+                                numeroRegistro++;
+                                numeroRegistroDetalhe++;
+                            }
+
+                            strline = boleto.Banco.GerarDetalheSegmentoSRemessa(boleto, numeroRegistroDetalhe, TipoArquivo.CNAB240);
+                            incluiLinha.WriteLine(strline);
+                            OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoS);
+                            numeroRegistro++;
+                            numeroRegistroDetalhe++;
+                        }
+                    }
+
+                    strline = banco.GerarTrailerLoteRemessa(numeroRegistro);
+                    incluiLinha.WriteLine(strline);
+                    OnLinhaGerada(null, strline, EnumTipodeLinha.TraillerDeLote);
+
+                    numeroRegistro++;
+                    numeroRegistro++;
+
+                    strline = banco.GerarTrailerArquivoRemessa(numeroRegistro);
+                    incluiLinha.WriteLine(strline);
+                    OnLinhaGerada(null, strline, EnumTipodeLinha.TraillerDeArquivo);
+
+                    incluiLinha.Close();
+                    #endregion
                 }
                 else //para qualquer outro banco, gera CNAB240 com segmentos abaixo
                 {
