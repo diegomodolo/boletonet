@@ -55,17 +55,17 @@ namespace BoletoNet
         {
             switch (especie)
             {
-                case EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao: return "A";
-                case EnumEspecieDocumento_Sicredi.DuplicataRural:return "B";
-                case EnumEspecieDocumento_Sicredi.NotaPromissoria: return "C";
-                case EnumEspecieDocumento_Sicredi.NotaPromissoriaRural: return "D";
-                case EnumEspecieDocumento_Sicredi.NotaSeguros: return "E";
-                case EnumEspecieDocumento_Sicredi.Recibo: return "G";
-                case EnumEspecieDocumento_Sicredi.LetraCambio: return "H";
-                case EnumEspecieDocumento_Sicredi.NotaDebito: return "I";
-                case EnumEspecieDocumento_Sicredi.DuplicataServicoIndicacao: return "J";
-                case EnumEspecieDocumento_Sicredi.Outros: return "K";
-                default: return "K";
+                case EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao: return "03";
+                case EnumEspecieDocumento_Sicredi.DuplicataRural:return "06";
+                case EnumEspecieDocumento_Sicredi.NotaPromissoria: return "12";
+                case EnumEspecieDocumento_Sicredi.NotaPromissoriaRural: return "13";
+                case EnumEspecieDocumento_Sicredi.NotaSeguros: return "16";
+                case EnumEspecieDocumento_Sicredi.Recibo: return "17";
+                case EnumEspecieDocumento_Sicredi.LetraCambio: return "07";
+                case EnumEspecieDocumento_Sicredi.NotaDebito: return "19";
+                case EnumEspecieDocumento_Sicredi.DuplicataServicoIndicacao: return "05";
+                case EnumEspecieDocumento_Sicredi.Outros: return "99";
+                default: return "99";
 
             }
         }
@@ -74,16 +74,16 @@ namespace BoletoNet
         {
             switch (codigo)
             {
-                case "A": return  EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao;
-                case "B": return  EnumEspecieDocumento_Sicredi.DuplicataRural;
-                case "C": return  EnumEspecieDocumento_Sicredi.NotaPromissoria;
-                case "D": return EnumEspecieDocumento_Sicredi.NotaPromissoriaRural;
-                case "E": return EnumEspecieDocumento_Sicredi.NotaSeguros;
-                case "G": return EnumEspecieDocumento_Sicredi.Recibo;
-                case "H": return EnumEspecieDocumento_Sicredi.LetraCambio;
-                case "I": return EnumEspecieDocumento_Sicredi.NotaDebito;
-                case "J": return EnumEspecieDocumento_Sicredi.DuplicataServicoIndicacao;
-                case "K": return EnumEspecieDocumento_Sicredi.Outros;
+                case "03": return  EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao;
+                case "06": return  EnumEspecieDocumento_Sicredi.DuplicataRural;
+                case "12": return  EnumEspecieDocumento_Sicredi.NotaPromissoria;
+                case "13": return EnumEspecieDocumento_Sicredi.NotaPromissoriaRural;
+                case "16": return EnumEspecieDocumento_Sicredi.NotaSeguros;
+                case "17": return EnumEspecieDocumento_Sicredi.Recibo;
+                case "07": return EnumEspecieDocumento_Sicredi.LetraCambio;
+                case "19": return EnumEspecieDocumento_Sicredi.NotaDebito;
+                case "05": return EnumEspecieDocumento_Sicredi.DuplicataServicoIndicacao;
+                case "99": return EnumEspecieDocumento_Sicredi.Outros;
                 default: return EnumEspecieDocumento_Sicredi.Outros;
             }
         }
