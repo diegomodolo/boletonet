@@ -20,8 +20,8 @@ namespace BoletoNet
         #region Propriedades
 
         /// <summary>
-        /// CÛdigo do Banco
-        /// 237 - Bradesco; 341 - Ita˙
+        /// C√≥digo do Banco
+        /// 237 - Bradesco; 341 - Ita√∫
         /// </summary>
         public virtual int Codigo
         {
@@ -30,7 +30,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// DÌgito do Banco
+        /// D√≠gito do Banco
         /// </summary>
         public virtual string Digito
         {
@@ -39,7 +39,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Nome da InstituiÁ„o Financeira
+        /// Nome da Institui√ß√£o Financeira
         /// </summary>
         public virtual string Nome
         {
@@ -57,25 +57,25 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Permitir a comunicaÁ„o entre bancos comerciais estaduais agindo como chave comum na troca de informaÁıes entre eles
+        /// Permitir a comunica√ß√£o entre bancos comerciais estaduais agindo como chave comum na troca de informa√ß√µes entre eles
         /// </summary>
         public string ChaveASBACE { get; set; }
         #endregion Propriedades
 
-        # region MÈtodos
+        # region M√©todos
 
         /// <summary>
-        /// Retorna o campo que compos o cÛdigo de barras que para todos os bancos s„o iguais foramado por:
+        /// Retorna o campo que compos o c√≥digo de barras que para todos os bancos s√£o iguais foramado por:
         /// </summary>
         /// <returns></returns>
         public virtual string CampoFixo()
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada");
         }
 
         public virtual bool ValidarRemessa(TipoArquivo tipoArquivo, string numeroConvenio, IBanco banco, Cedente cedente, Boletos boletos, int numeroArquivoRemessa, out string mensagem)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
 
         /// <summary>
@@ -268,39 +268,39 @@ namespace BoletoNet
             return _trailerLote;
         }
         /// <summary>
-        /// Formata cÛdigo de barras
+        /// Formata c√≥digo de barras
         /// </summary>      
         public virtual void FormataCodigoBarra(Boleto boleto)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
         /// <summary>
-        /// Formata linha digit·vel
+        /// Formata linha digit√°vel
         /// </summary>
         public virtual void FormataLinhaDigitavel(Boleto boleto)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
         /// <summary>
-        /// Formata nosso n˙mero
+        /// Formata nosso n√∫mero
         /// </summary>
         public virtual void FormataNossoNumero(Boleto boleto)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
         /// <summary>
-        /// Formata n˙mero do documento
+        /// Formata n√∫mero do documento
         /// </summary>
         public virtual void FormataNumeroDocumento(Boleto boleto)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
         /// <summary>
         /// Valida o boleto
         /// </summary>
         public virtual void ValidaBoleto(Boleto boleto)
         {
-            throw new NotImplementedException("FunÁ„o n„o implementada na classe filha. Implemente na classe que est· sendo criada.");
+            throw new NotImplementedException("Fun√ß√£o n√£o implementada na classe filha. Implemente na classe que est√° sendo criada.");
         }
 
         public virtual DetalheSegmentoWRetornoCNAB240 LerDetalheSegmentoWRetornoCNAB240(string registro)
@@ -392,7 +392,7 @@ namespace BoletoNet
                 detalhe.NomeSacado = registro.Substring(324, 30);
                 // 354 - 23 brancos
                 detalhe.Erros = registro.Substring(377, 8);
-                // 377 - Registros rejeitados ou alegaÁ„o do sacado
+                // 377 - Registros rejeitados ou alega√ß√£o do sacado
                 // 386 - 7 brancos
 
                 detalhe.CodigoLiquidacao = registro.Substring(392, 2);
@@ -419,10 +419,10 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Obtem o cÛdigo de ocorrÍncia formatado, utiliza '01' - 'Entrada de titulos como padr„o'
+        /// Obtem o c√≥digo de ocorr√™ncia formatado, utiliza '01' - 'Entrada de titulos como padr√£o'
         /// </summary>
         /// <param name="boleto">Boleto</param>
-        /// <returns>CÛdigo da ocorrÍncia</returns>
+        /// <returns>C√≥digo da ocorr√™ncia</returns>
         protected string ObterCodigoDaOcorrencia(Boleto boleto)
         {
             return boleto.Remessa != null && !string.IsNullOrEmpty(boleto.Remessa.CodigoOcorrencia)
@@ -438,13 +438,13 @@ namespace BoletoNet
         /// <returns>Retorno Fator de Vencimento</returns>
         /// <remarks>
         ///     Wellington(wcarvalho@novatela.com.br) 
-        ///     Com base na proposta feita pela CENEGESC de acordo com o comunicado FEBRABAN de n∞ 082/2012 de 14/06/2012 segue regra para implantaÁ„o.
-        ///     No dia 21/02/20025 o fator vencimento chegar· em 9999 assim atigindo o tempo de utilizaÁ„o, para contornar esse problema foi definido com uma nova regra
-        ///     de utilizaÁao criando um range de uso o range funcionara controlando a emiss„o dos boletos.
+        ///     Com base na proposta feita pela CENEGESC de acordo com o comunicado FEBRABAN de n¬∞ 082/2012 de 14/06/2012 segue regra para implanta√ß√£o.
+        ///     No dia 21/02/20025 o fator vencimento chegar√° em 9999 assim atigindo o tempo de utiliza√ß√£o, para contornar esse problema foi definido com uma nova regra
+        ///     de utiliza√ßao criando um range de uso o range funcionara controlando a emiss√£o dos boletos.
         ///     Exemplo:
         ///         Data Atual: 12/03/2014 = 6000
-        ///         Para os boletos vencidos, anterior a data atual È de 3000 fatores cerca de =/- 8 anos. Os boletos que forem gerados acima dos 3000 n„o ser„o aceitos pelas instituiÁıes financeiras.
-        ///         Para os boletos a vencer, posterior a data atual È de 5500 fatores cerca de +/- 15 anos. Os boletos que forem gerados acima dos 5500 n„o ser„o aceitos pelas instituiÁıes financeiras.
+        ///         Para os boletos vencidos, anterior a data atual √© de 3000 fatores cerca de =/- 8 anos. Os boletos que forem gerados acima dos 3000 n√£o ser√£o aceitos pelas institui√ß√µes financeiras.
+        ///         Para os boletos a vencer, posterior a data atual √© de 5500 fatores cerca de +/- 15 anos. Os boletos que forem gerados acima dos 5500 n√£o ser√£o aceitos pelas institui√ß√µes financeiras.
         ///     Quando o fator de vencimento atingir 9999 ele retorna para 1000
         ///     Exemplo:
         ///         21/02/2025 = 9999
@@ -462,7 +462,7 @@ namespace BoletoNet
             long rangeUtilizavel = Utils.DateDiff(DateInterval.Day, dataAtual, boleto.DataVencimento);
 
             if (rangeUtilizavel > 5500 || rangeUtilizavel < -3000)
-                throw new Exception("Data do vencimento fora do range de utilizaÁ„o proposto pela CENEGESC. Comunicado FEBRABAN de n∞ 082/2012 de 14/06/2012");
+                throw new Exception("Data do vencimento fora do range de utiliza√ß√£o proposto pela CENEGESC. Comunicado FEBRABAN de n¬∞ 082/2012 de 14/06/2012");
 
             while (boleto.DataVencimento > dateBase.AddDays(9999))
                 dateBase = boleto.DataVencimento.AddDays(-(((Utils.DateDiff(DateInterval.Day, dateBase, boleto.DataVencimento) - 9999) - 1) + 1000));
@@ -473,9 +473,9 @@ namespace BoletoNet
         #region Mod
         internal static int Mod10(string seq)
         {
-            /* Vari·veis
+            /* Vari√°veis
              * -------------
-             * d - DÌgito
+             * d - D√≠gito
              * s - Soma
              * p - Peso
              * b - Base
@@ -504,9 +504,9 @@ namespace BoletoNet
 
         protected static int Mod11(string seq)
         {
-            /* Vari·veis
+            /* Vari√°veis
              * -------------
-             * d - DÌgito
+             * d - D√≠gito
              * s - Soma
              * p - Peso
              * b - Base
@@ -532,9 +532,9 @@ namespace BoletoNet
 
         public static int Mod11Peso2a9(string seq)
         {
-            /* Vari·veis
+            /* Vari√°veis
              * -------------
-             * d - DÌgito
+             * d - D√≠gito
              * s - Soma
              * p - Peso
              * b - Base
@@ -569,9 +569,9 @@ namespace BoletoNet
 
         protected static int Mod11(string seq, int b)
         {
-            /* Vari·veis
+            /* Vari√°veis
              * -------------
-             * d - DÌgito
+             * d - D√≠gito
              * s - Soma
              * p - Peso
              * b - Base
@@ -601,9 +601,9 @@ namespace BoletoNet
 
         protected static int Mod11Base9(string seq)
         {
-            /* Vari·veis
+            /* Vari√°veis
              * -------------
-             * d - DÌgito
+             * d - D√≠gito
              * s - Soma
              * p - Peso
              * b - Base
@@ -742,7 +742,7 @@ namespace BoletoNet
         #endregion Mod
 
         /// <summary>
-        /// ObtÈm nosso n˙mero sem DV e sem cÛdigo do ConvÍnio.
+        /// Obt√©m nosso n√∫mero sem DV e sem c√≥digo do Conv√™nio.
         /// </summary>
         /// <returns></returns>
         public virtual long ObterNossoNumeroSemConvenioOuDigitoVerificador(long convenio, string nossoNumero)

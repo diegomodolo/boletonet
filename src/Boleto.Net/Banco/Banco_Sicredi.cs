@@ -92,8 +92,12 @@ namespace BoletoNet
                     boleto.DigitoNossoNumero = DigNossoNumeroSicredi(boleto);
                     boleto.NossoNumero += boleto.DigitoNossoNumero;
                     break;
-                case 5:
-                    boleto.NossoNumero = DateTime.Now.ToString("yy") + "2" + boleto.NossoNumero;
+                case 5: 
+                case 4:
+                case 3:
+                case 2:
+                case 1:
+                    boleto.NossoNumero = DateTime.Now.ToString("yy") + "2" + boleto.NossoNumero.PadLeft(5, '0');
                     boleto.DigitoNossoNumero = DigNossoNumeroSicredi(boleto);
                     boleto.NossoNumero += boleto.DigitoNossoNumero;
                     break;
@@ -328,7 +332,7 @@ namespace BoletoNet
                 {
 
                     case TipoArquivo.CNAB240:
-                        _header = GerarHeaderRemessaCNAB240(cedente);
+                        _header = GerarHeaderRemessaCNAB240(cedente, numeroArquivoRemessa);
                         break;
                     case TipoArquivo.CNAB400:
                         _header = GerarHeaderRemessaCNAB400(0, cedente, numeroArquivoRemessa);
@@ -455,7 +459,7 @@ namespace BoletoNet
             }
         }
 
-        public string GerarHeaderRemessaCNAB240(Cedente cedente)
+        public string GerarHeaderRemessaCNAB240(Cedente cedente, int numeroArquivoRemessa)
         {
             try
             {
@@ -478,7 +482,7 @@ namespace BoletoNet
                 ////header += Utils.FormatCode(cedente.Nome, " ", 30);
                 header += "1";
                 header += DateTime.Now.ToString("ddMMyyyyHHmmss");
-                header += Utils.FormatCode("", "0", 6);
+                header += Utils.FitStringLength(numeroArquivoRemessa.ToString(), 6, 6, '0', 0, true, true, true);
                 header += "081";
                 header += "01600";
                 header += Utils.FormatCode("", " ", 69);
@@ -589,9 +593,8 @@ namespace BoletoNet
                 boleto.Valida();
 
                 //Nosso número ==> 038 - 057
-                //boleto.NossoNumero = DateTime.Now.ToString("yy") + "2" + DigNossoNumeroSicredi(boleto, true);
-                _segmentoP += Utils.FitStringLength(boleto.NossoNumero.Replace("-", "").Replace("/", ""), 20, 20, ' ',
-                    0, true, true, true);
+                ////_segmentoP += Utils.FitStringLength(boleto.NossoNumero.Replace("-", "").Replace("/", ""), 20, 20, ' ', 0, true, true, true);
+                _segmentoP += boleto.NossoNumero.Replace("-", "").Replace("/", "").PadRight(20, ' ');
 
                 //Carteira ==> 058 - 058
                 _segmentoP += "1";
@@ -661,7 +664,7 @@ namespace BoletoNet
                     _segmentoP += "000000000000000";
                 }
 
-                if (boleto.ValorDesconto > 0)
+                if(boleto.ValorDesconto > 0)
                 {
                     //Código do desconto 1 ==> 142 - 142
                     _segmentoP += "1";
@@ -672,8 +675,21 @@ namespace BoletoNet
                     //Valor ou Percentual do desconto concedido ==> 151 - 165
                     _segmentoP += Utils.FitStringLength(boleto.ValorDesconto.ApenasNumeros(), 15, 15, '0', 0, true, true, true);
                 }
+                else if (boleto.OutrosDescontos > 0)
+                {
+                    //Código do desconto 1 ==> 142 - 142
+                    _segmentoP += "1";
+
+                    //Data de desconto 1 ==> 143 - 150
+                    _segmentoP += Utils.FitStringLength(boleto.DataVencimento.ToString("ddMMyyyy"), 8, 8, '0', 0, true, true, false);
+
+                    //Valor ou Percentual do desconto concedido ==> 151 - 165
+                    _segmentoP += Utils.FitStringLength(boleto.OutrosDescontos.ApenasNumeros(), 15, 15, '0', 0, true, true, true);
+                }
                 else
+                {
                     _segmentoP += "0".PadLeft(24, '0');
+                }
 
 
                 //Valor do IOF a ser recolhido ==> 166 - 180
@@ -963,7 +979,8 @@ namespace BoletoNet
                 for (int i = 0; i < 3; i++)
                 {
                     if (boleto.Instrucoes.Count > i)
-                        _segmentoS += Utils.FitStringLength(boleto.Instrucoes[i].Descricao, 40, 40, ' ', 0, true, true, false);
+                        //_segmentoS += Utils.FitStringLength(boleto.Instrucoes[i].Descricao, 40, 40, ' ', 0, true, true, false);
+                        _segmentoS += boleto.Instrucoes[i].Descricao;
                     else
                         _segmentoS += Utils.FitStringLength(" ", 40, 40, ' ', 0, true, true, false);
                 }
