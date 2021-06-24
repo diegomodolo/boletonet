@@ -62,7 +62,15 @@ namespace BoletoNet
                 if (banco.Codigo == 104)//quando é caixa verifica o modelo de leiatue que é está em boletos.remssa.tipodocumento
                     strline = banco.GerarHeaderRemessa(numeroConvenio, cedente, TipoArquivo.CNAB240, numeroArquivoRemessa, boletos[0]);
                 else
-                    strline = banco.GerarHeaderRemessa(numeroConvenio, cedente, TipoArquivo.CNAB240, numeroArquivoRemessa);
+                {
+                    strline = banco.GerarHeaderRemessa(
+                        numeroConvenio,
+                        cedente,
+                        TipoArquivo.CNAB240,
+                        numeroArquivoRemessa);
+
+
+                }
 
                 numeroRegistro++;
 
@@ -265,6 +273,7 @@ namespace BoletoNet
                     incluiLinha.Close();
 
                 }
+                ////<BRUNO.GUIMARAES>
                 else if (banco.Codigo == 748) //Sicredi
                 {
                     #region se Banco Sicredi - 748
@@ -319,6 +328,7 @@ namespace BoletoNet
                     incluiLinha.Close();
                     #endregion
                 }
+                ////<\BRUNO.GUIMARAES>
                 else //para qualquer outro banco, gera CNAB240 com segmentos abaixo
                 {
                     #region outros bancos

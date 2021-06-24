@@ -24,7 +24,8 @@ namespace BoletoNet
         AlteracaoOutrosDados_CancelamentoProtestoAutomatico = 315,
         //AlteracaoOutrosDados_CarteiraDeCobranca = 316,  não disponivel...
 
-	
+
+        OutrasInstrucoes_ExibeMensagem_DescontoPontualidade = 899,
         OutrasInstrucoes_ExibeMensagem_MoraDiaria = 900,
         OutrasInstrucoes_ExibeMensagem_MultaVencimento = 901
     }
@@ -104,6 +105,12 @@ namespace BoletoNet
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
                         this.Descricao = "  - APÓS VENCIMENTO COBRAR JURO DE " + valor + "% POR DIA DE ATRASO";
                         break;
+
+                    case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade:
+                        this.Codigo = (int)EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade;
+                        this.Descricao = " - ATÉ O VENCIMENTO CONCEDER DESCONTO DE R$" + valor;
+                        break;
+
                     default:
                         this.Codigo = 0;
                         this.Descricao = " (Selecione) ";
@@ -161,6 +168,11 @@ namespace BoletoNet
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
                         this.Descricao = "";
                         break;
+                    case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade:
+                        this.Codigo = (int)EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade;
+                        this.Descricao = "";
+                        break;
+
                     default:
                         this.Codigo = 0;
                         this.Descricao = " (Selecione) ";

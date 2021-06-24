@@ -92,8 +92,12 @@ namespace BoletoNet
                     boleto.DigitoNossoNumero = DigNossoNumeroSicredi(boleto);
                     boleto.NossoNumero += boleto.DigitoNossoNumero;
                     break;
-                case 5:
-                    boleto.NossoNumero = DateTime.Now.ToString("yy") + "2" + boleto.NossoNumero;
+                case 5: 
+                case 4:
+                case 3:
+                case 2:
+                case 1:
+                    boleto.NossoNumero = DateTime.Now.ToString("yy") + "2" + boleto.NossoNumero.PadLeft(5, '0');
                     boleto.DigitoNossoNumero = DigNossoNumeroSicredi(boleto);
                     boleto.NossoNumero += boleto.DigitoNossoNumero;
                     break;
@@ -930,8 +934,21 @@ namespace BoletoNet
                     //Valor ou Percentual do desconto concedido ==> 151 - 165
                     _segmentoP += Utils.FitStringLength(boleto.ValorDesconto.ApenasNumeros(), 15, 15, '0', 0, true, true, true);
                 }
+                else if (boleto.OutrosDescontos > 0)
+                {
+                    //C�digo do desconto 1 ==> 142 - 142
+                    _segmentoP += "1";
+
+                    //Data de desconto 1 ==> 143 - 150
+                    _segmentoP += Utils.FitStringLength(boleto.DataVencimento.ToString("ddMMyyyy"), 8, 8, '0', 0, true, true, false);
+
+                    //Valor ou Percentual do desconto concedido ==> 151 - 165
+                    _segmentoP += Utils.FitStringLength(boleto.OutrosDescontos.ApenasNumeros(), 15, 15, '0', 0, true, true, true);
+                }
                 else
+                {
                     _segmentoP += "0".PadLeft(24, '0');
+                }
 
 
                 //Valor do IOF a ser recolhido ==> 166 - 180
