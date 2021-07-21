@@ -557,9 +557,17 @@ namespace BoletoNet
 
         #endregion
 
-
         public override void ValidaBoleto(Boleto boleto)
         {
+            //Atribui o nome do banco ao local de pagamento
+            if (string.IsNullOrEmpty(boleto.LocalPagamento))
+            {
+                boleto.LocalPagamento = "Até o vencimento, preferencialmente no " + this.Nome;
+            }
+            else if (boleto.LocalPagamento == "Até o vencimento, preferencialmente no ")
+            {
+                boleto.LocalPagamento += this.Nome;
+            }
 
             // Calcula o DAC do Nosso Número
             _dacNossoNumero = CalcularDigitoNossoNumero(boleto);
