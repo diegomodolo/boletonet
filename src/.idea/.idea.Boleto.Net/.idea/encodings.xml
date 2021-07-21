@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/Boleto.Net/Banco/Banco_Itau.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Boleto.Net/Banco/Banco_Safra.cs" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/Boleto.Net/Banco/Banco_Sicredi.cs" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/Boleto.Net/Boleto/Boleto.cs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Boleto.Net/Boleto/EspecieDocumento/EspecieDocumento_Safra.cs" charset="windows-1252" />
   </component>
 </project>

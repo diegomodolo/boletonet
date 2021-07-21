@@ -1,4 +1,4 @@
-<%@ page language="C#" masterpagefile="~/MasterPage.master" autoeventwireup="true" inherits="Bancos_BancodoBrasil, App_Web_zo3oovlv" %>
+<%@ page language="C#" masterpagefile="~/MasterPage.master" autoeventwireup="true" inherits="Bancos_BancodoBrasil, App_Web_1nklxqeh" %>
 <%@ Register Assembly="Boleto.Net" Namespace="BoletoNet" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
         <cc1:BoletoBancario id="boletoBancario" runat="server" CodigoBanco="001"></cc1:BoletoBancario>
