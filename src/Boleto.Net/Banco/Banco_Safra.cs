@@ -888,14 +888,13 @@ namespace BoletoNet
             codigoBarra.LinhaDigitavel = grupo1 + grupo2 + grupo3 + grupo4 + grupo5;
 
         }
+
         private static string CalcularDvModulo10Safra(string texto)
         {
             int soma = 0, peso = 2;
 
             for (var i = texto.Length - 1; i >= 0; i--)
             {
-
-
                 var result = Convert.ToInt32(texto.Substring(i, 1)) * peso;
                 if (result > 9 && peso == 2)
                 {
@@ -905,19 +904,25 @@ namespace BoletoNet
                 soma += result;
 
                 if (peso == 2)
+                {
                     peso = 1;
+                }
                 else
-                    peso = peso + 1;
+                {
+                    peso += 1;
+                }
             }
 
             var resto = (soma % 10);
 
-            if (resto <= 1)
+            if (resto == 0)
+            {
                 return "0";
+            }
 
             return (10 - resto).ToString();
-
         }
+
         #endregion IBanco Members
 
 

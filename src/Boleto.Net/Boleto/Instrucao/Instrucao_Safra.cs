@@ -9,19 +9,28 @@ namespace BoletoNet
     public enum EnumInstrucoes_Safra
     {
         PedidoBaixa = 2,
+
         ConcessaoAbatimento = 4,
+
         CancelamentoAbatimentoConcedido = 5,
+
         AlteracaoVencimento = 6,
+
         Protestar = 9,
+
         NaoProtestar = 10,
+
         NaoCobrarJurosDeMora = 11,
+
         JurosdeMora = 16,
+
         AlteracaoOutrosDados = 31
     }
 
     #endregion
 
-    public class Instrucao_Safra : AbstractInstrucao, IInstrucao
+    public class Instrucao_Safra : AbstractInstrucao,
+                                   IInstrucao
     {
         #region Construtores
 
@@ -46,6 +55,7 @@ namespace BoletoNet
         {
             this.carregar(codigo, nrDias);
         }
+
         #endregion Construtores
 
         #region Metodos Privados
@@ -115,6 +125,5 @@ namespace BoletoNet
         }
 
         #endregion
-
     }
 }
