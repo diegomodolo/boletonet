@@ -84,7 +84,7 @@ namespace BoletoNet
                     case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_MoraDiaria:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
                         this.Descricao = String.Format("  - APÓS VENCIMENTO COBRAR JUROS DE {0} {1} POR DIA DE ATRASO",
-                            (tipoValor.Equals(EnumTipoValor.Reais) ? "R$ " : valor.ToString("F2")),
+                            (tipoValor.Equals(EnumTipoValor.Reais) ? "R$ " : valor.ToString("F3")),
                             (tipoValor.Equals(EnumTipoValor.Percentual) ? "%" : valor.ToString("F2")));
                         break;
                     case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_MultaVencimento:

@@ -802,7 +802,11 @@ namespace BoletoNet
                 switch (Boleto.Banco.Codigo)
                 {
                     case (int)Bancos.Sicredi:
-                        agenciaCodigoCedente = string.Format("{0}.{1}.{2}", Cedente.ContaBancaria.Agencia, Cedente.ContaBancaria.OperacaConta, Utils.FormatCode(Cedente.ContaBancaria.Conta, 5));
+                        agenciaCodigoCedente = string.Format(
+                            "{0}.{1}.{2}",
+                            Cedente.ContaBancaria.Agencia,
+                            Cedente.ContaBancaria.OperacaConta,
+                            Cedente.Codigo.Substring(Cedente.Codigo.Length - 5, 5));
                         break;
                     case (int)Bancos.Banrisul:
                         var codigo = Cedente.Codigo;

@@ -1,4 +1,4 @@
-<%@ page language="C#" masterpagefile="~/MasterPage.master" autoeventwireup="true" inherits="EnvioEmail, App_Web_txb0kv41" title="Untitled Page" %>
+<%@ page language="C#" masterpagefile="~/MasterPage.master" autoeventwireup="true" inherits="EnvioEmail, App_Web_lbdgqblo" title="Untitled Page" %>
 
 <%@ Register Assembly="Boleto.Net" Namespace="BoletoNet" TagPrefix="boletonet" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
