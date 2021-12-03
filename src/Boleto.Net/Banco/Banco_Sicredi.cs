@@ -378,7 +378,7 @@ namespace BoletoNet
                 //Reservado (uso Banco) ==> 017 - 017
                 header += " ";
 
-                //Tipo de inscrição da empresa ==> 018 - 018
+                //Tipo de inscrição da empresa ==> 018 - 018 
                 header += (cedente.CPFCNPJ.Length == 11 ? "1" : "2");
 
                 //Nº de inscrição da empresa ==> 019 - 033
@@ -412,7 +412,8 @@ namespace BoletoNet
                 header += Utils.FormatCode("", " ", 40);
 
                 //Número remessa/retorno ==> 184 - 191
-                header += Utils.FormatCode(cedente.NumeroSequencial.ToString(), "0", 8, true);
+                //header += Utils.FormatCode(cedente.NumeroSequencial.ToString(), "0", 8, true);
+                header += Utils.FormatCode(numeroArquivoRemessa.ToString(), "0", 8, true);
 
                 //Data da gravação remessa/retorno ==> 192 - 199
                 header += DateTime.Now.ToString("ddMMyyyy");
