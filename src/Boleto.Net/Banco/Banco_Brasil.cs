@@ -2445,6 +2445,10 @@ namespace BoletoNet
         {
             try
             {
+                if (registro.StartsWith("5"))
+                {
+                    return null;
+                }
                 TRegistroEDI_BancoBrasil_Retorno reg = new TRegistroEDI_BancoBrasil_Retorno();
                 //
                 reg.LinhaRegistro = registro;
