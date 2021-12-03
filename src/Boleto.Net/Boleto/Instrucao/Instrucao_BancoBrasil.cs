@@ -80,7 +80,7 @@ namespace BoletoNet
                             (tipoValor.Equals(EnumTipoValor.Percentual) ? "%" : valor.ToString("F2")));
                         break;
                     case EnumInstrucoes_BancoBrasil.JurosdeMora:
-                        this.Codigo = 0;
+                        this.Codigo = 1;
                         this.Descricao = String.Format("Após vencimento cobrar juros de {0} {1} por dia de atraso",
                             (tipoValor.Equals(EnumTipoValor.Reais) ? "R$ " : valor.ToString("F2")),
                             (tipoValor.Equals(EnumTipoValor.Percentual) ? "%" : valor.ToString("F2")));

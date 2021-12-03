@@ -62,6 +62,7 @@ namespace BoletoNet
                         case (int)Bancos.BancoBrasil:
                             IdsRegistroDetalhe.Add("1");//Para convênios de 6 posições
                             IdsRegistroDetalhe.Add("7");//Para convênios de 7 posições
+                            IdsRegistroDetalhe.Add("5");//Para retorno de pagamento por PIX - ignoramos a linha
                             break;
                         default:
                             IdsRegistroDetalhe.Add("1");
@@ -70,6 +71,12 @@ namespace BoletoNet
 
                     while (IdsRegistroDetalhe.Contains(DetalheRetorno.PrimeiroCaracter(linha)))
                     {
+                        if (DetalheRetorno.PrimeiroCaracter(linha) == "5")
+                        {
+                            linha = stream.ReadLine();
+                            continue;
+                        }
+                        
                         DetalheRetorno detalhe = banco.LerDetalheRetornoCNAB400(linha);
                         ListaDetalhe.Add(detalhe);
                         OnLinhaLida(detalhe, linha);

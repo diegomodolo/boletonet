@@ -5,7 +5,7 @@ namespace BoletoNet
     public class DetalheRetorno
     {
 
-        #region Variáveis
+        #region VariÃ¡veis
 
         private string _numeroInscricao = string.Empty;
         private string _usoEmpresa = string.Empty;
@@ -136,7 +136,7 @@ namespace BoletoNet
             set { _numeroInscricao = value; }
         }
         /// <summary>
-        /// Agência com o Dígito Verificador, quando houver
+        /// AgÃªncia com o DÃ­gito Verificador, quando houver
         /// </summary>
         public int Agencia { get; set; }
 
@@ -166,7 +166,7 @@ namespace BoletoNet
             set { _dacNossoNumero = value; }
         }
         /// <summary>
-        /// Nosso Numero Completo Com o Dígito Verificador
+        /// Nosso Numero Completo Com o DÃ­gito Verificador
         /// </summary>
         public string NossoNumeroComDV { get; set; }
 
@@ -338,7 +338,7 @@ namespace BoletoNet
 
         #endregion
 
-        #region Métodos de Instância
+        #region MÃ©todos de InstÃ¢ncia
 
         public void LerDetalheRetornoCNAB400(string registro)
         {
