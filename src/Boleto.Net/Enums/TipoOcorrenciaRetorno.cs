@@ -55,6 +55,7 @@
         ConfirmacaoDoPedidoDeAlteracaoDoBeneficiarioDoTítulo = 59,                //'59' = Confirmação do Pedido de Alteração do Beneficiário do Título
         ConfirmacaoDoPedidoDeDispensaDeJurosDeMora = 60,                          //'60' = Confirmação do Pedido de Dispensa de Juros de Mora
         ConfirmacaoDeAlteracaoDoValorNominalDoTitulo = 61,                        //'61' = Confirmação de Alteração do Valor Nominal do Título
-        TituloSustadoJudicialmente = 63                                           //'63' = Título Sustado Judicialmente
+        TituloSustadoJudicialmente = 63,                                          //'63' = Título Sustado Judicialmente
+        IntencaoPagamento = 91                                                    //'91' = Intenção de pagamento
     }
 }
