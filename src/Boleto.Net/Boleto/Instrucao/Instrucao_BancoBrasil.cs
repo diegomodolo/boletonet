@@ -8,6 +8,7 @@ namespace BoletoNet
 
     public enum EnumInstrucoes_BancoBrasil
     {
+        ProtestarApos5DiaUtil = 5,
         Protestar = 9,                      // Emite aviso ao sacado após N dias do vencto, e envia ao cartório após 5 dias úteis
         NaoProtestar = 7,                  // Inibe protesto, quando houver instrução permanente na conta corrente
         ImportanciaporDiaDesconto = 30,
@@ -107,6 +108,10 @@ namespace BoletoNet
 
                 switch ((EnumInstrucoes_BancoBrasil)idInstrucao)
                 {
+                    case EnumInstrucoes_BancoBrasil.ProtestarApos5DiaUtil:
+                        this.Codigo = (int)EnumInstrucoes_BancoBrasil.ProtestarApos5DiaUtil;
+                        this.Descricao = "Protestar após 5 dias úteis.";
+                        break;
                     case EnumInstrucoes_BancoBrasil.Protestar:
                         this.Codigo = (int)EnumInstrucoes_BancoBrasil.Protestar;
                         this.Descricao = "Protestar após " + nrDias + " dias úteis.";
