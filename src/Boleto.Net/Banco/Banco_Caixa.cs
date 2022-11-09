@@ -3,6 +3,7 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Web.UI;
+using BoletoNet.Enums;
 
 [assembly: WebResource("BoletoNet.Imagens.104.jpg", "image/jpg")]
 
@@ -52,8 +53,7 @@ namespace BoletoNet
             long fatorVencimento = FatorVencimento(boleto);
 
             // Posição 10 - 19     
-            var valor = boleto.ValorCobrado > boleto.ValorBoleto ? boleto.ValorCobrado : boleto.ValorBoleto;
-            string valorDocumento = valor.ToString("f").Replace(",", "").Replace(".", "");
+            string valorDocumento = boleto.ValorCodBarra.ToString("f").Replace(",", "").Replace(".", "");
             valorDocumento = Utils.FormatCode(valorDocumento, 10);
 
 
@@ -93,12 +93,24 @@ namespace BoletoNet
                     //Carteira SR - 24 (cobrança sem registro) || Carteira RG - 14 (cobrança com registro)
                     //Cobrança sem registro, nosso número com 17 dígitos. 
 
-                    //Posição 20 - 25
-                    string codigoCedente = Utils.FormatCode(boleto.Cedente.Codigo, 6);
+                    string codigoCedente, dvCodigoCedente;
+                    if (boleto.Cedente.Codigo.Length == 7)//Código cedente/beneficiário com 7 dígitos não usa dv.
+                    {
+                        //Posição 20 - 25
+                        codigoCedente = boleto.Cedente.Codigo.Substring(0, 6);
 
-                    // Posição 26
-                    string dvCodigoCedente = Mod11Base9(codigoCedente).ToString();
+                    	// Posição 26
+                        dvCodigoCedente = boleto.Cedente.Codigo.Substring(6, 1);
+                    }
+		    else
+                    {
+                        //Posição 20 - 25
+                        codigoCedente = Utils.FormatCode(boleto.Cedente.Codigo, 6);
 
+                        // Posição 26
+                        dvCodigoCedente = Mod11Base9(codigoCedente).ToString();
+                    }
+		    
                     //Posição 27 - 29
                     //De acordo com documentação, posição 3 a 5 do nosso numero
                     string primeiraParteNossoNumero = boleto.NossoNumero.Substring(2, 3);
@@ -128,7 +140,7 @@ namespace BoletoNet
                     string segundaParteNossoNumero = boleto.NossoNumero.Substring(5, 3);
 
                     // Posição 34
-                    string segundaConstante = "4";// 4 => emissão do boleto pelo cedente
+                    string segundaConstante = boleto.TipoEmissao == TipoEmissao.EmissaoPeloCedente ?  "4" : "1";// 4 => Emissão do boleto pelo cedente, 1 => Emissão pelo banco
 
                     //Posição 35 - 43
                     //De acordo com documentaçao, posição 9 a 17 do nosso numero
@@ -327,7 +339,7 @@ namespace BoletoNet
 
                 long FFFF = FatorVencimento(boleto);
 
-                string VVVVVVVVVV = boleto.ValorBoleto.ToString("f").Replace(",", "").Replace(".", "");
+                string VVVVVVVVVV = boleto.ValorCodBarra.ToString("f").Replace(",", "").Replace(".", "");
                 VVVVVVVVVV = Utils.FormatCode(VVVVVVVVVV, 10);
 
                 if (Utils.ToInt64(VVVVVVVVVV) == 0)
@@ -413,8 +425,8 @@ namespace BoletoNet
             if (boleto.DataDocumento == DateTime.MinValue)
                 boleto.DataDocumento = DateTime.Now;
 
-            if (boleto.Cedente.Codigo.Length > 6)
-                throw new Exception("O código do cedente deve conter apenas 6 dígitos");
+            if (boleto.Cedente.Codigo.Length > 7)
+                throw new Exception("O código do cedente deve conter 6 ou 7 dígitos");
 
             //Atribui o nome do banco ao local de pagamento
             //Suélton 23/03/18 - Na homolagação do boleto junto a Caixa solicitaram que o texto do local de pagamento fosse esse
