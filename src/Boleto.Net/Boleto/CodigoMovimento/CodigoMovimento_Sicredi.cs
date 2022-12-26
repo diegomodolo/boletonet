@@ -30,6 +30,7 @@ namespace BoletoNet
         RetiradoDeCartorioEManutencaoEmCarteira = 34,                 //34 Retirado de cartório e manutenção em carteira
         AceiteDoPagador = 35,                                         //35 Aceite do pagador
         TituloDDAreconhecidoPeloPagador = 51,                         //51 Título DDA reconhecido pelo Pagador
+        TituloDDANaoReconhecidoPeloPagador = 52,                      //52 Título DDA não reconhecido pelo Pagador
         ConfirmacaoRecibimentoPedidoNegativacao = 78,                 //78 Confirmação de recebimento de pedido de negativação
         ConfirmacaoRecebimentoPedidoExclusaoNegativacao = 79,         //79 Confirmação de recebimento de pedido de exclusão de negativação
         ConfirmacaoEntradaNegativacao = 80,                           //80 Confirmação de entrada de negativação
@@ -104,7 +105,8 @@ namespace BoletoNet
             { EnumCodigoMovimento_Sicredi.ConfirmacaoDePedidoDeAlteracaoDeOutrosDados            ,TipoOcorrenciaRetorno.ConfirmacaoDaAlteracaoDosDadosDoRateioDeCredito },
             { EnumCodigoMovimento_Sicredi.RetiradoDeCartorioEManutencaoEmCarteira                ,TipoOcorrenciaRetorno.ConfirmacaoDoCancelamentoDosDadosDoRateioDeCredito },
             { EnumCodigoMovimento_Sicredi.IntencaoPagamento                                      ,TipoOcorrenciaRetorno.IntencaoPagamento },
-            { EnumCodigoMovimento_Sicredi.TituloDDAreconhecidoPeloPagador                        ,TipoOcorrenciaRetorno.TituloDDAreconhecidoPeloPagador}
+            { EnumCodigoMovimento_Sicredi.TituloDDAreconhecidoPeloPagador                        ,TipoOcorrenciaRetorno.TituloDDAreconhecidoPeloPagador},
+            { EnumCodigoMovimento_Sicredi.TituloDDANaoReconhecidoPeloPagador                     ,TipoOcorrenciaRetorno.TituloDDANaoReconhecidoPeloPagador}
         };
 
         private readonly Dictionary<EnumCodigoMovimento_Sicredi, string> descricoes = new Dictionary<EnumCodigoMovimento_Sicredi, string>()
@@ -140,7 +142,8 @@ namespace BoletoNet
             { EnumCodigoMovimento_Sicredi.ExclusaoNegativacaoOutros                               , "Exclusão de negativação por outros motivos"                     },
             { EnumCodigoMovimento_Sicredi.OcorrenciaInformacionalOutros                           , "Ocorrência informacional por outros motivos"                    },
             { EnumCodigoMovimento_Sicredi.IntencaoPagamento                                       , "Intenção de pagamento"                                          },
-            { EnumCodigoMovimento_Sicredi.TituloDDAreconhecidoPeloPagador                         , "Título DDA reconhecido pelo pagador"                            }
+            { EnumCodigoMovimento_Sicredi.TituloDDAreconhecidoPeloPagador                         , "Título DDA reconhecido pelo pagador"                            },
+            { EnumCodigoMovimento_Sicredi.TituloDDANaoReconhecidoPeloPagador                      , "Título DDA não reconhecido pelo pagador"                        }
         };
         #endregion
     }
