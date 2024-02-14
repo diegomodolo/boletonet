@@ -519,7 +519,17 @@ namespace BoletoNet
                 if (Boleto.Cedente.Instrucoes.Count > 0)
                     MontaInstrucoes(Boleto.Cedente.Instrucoes);
 
-                return html.ToString().Replace("@INSTRUCOES", _instrucoesHtml);
+                if (string.IsNullOrEmpty(this.Boleto.QRCode))
+                    return html.ToString().Replace("@INSTRUCOES", _instrucoesHtml).Replace("@QRCODE", "").Replace("@COPIARCOLAR", "");
+                else
+                {
+                    string copiarColar = string.Format("Escolha a forma mais conveniente para realizar seu pagamento: <b><i>Código de Barras</i></b> ou <b><i>QR Code</i></b>. Basta acessar o aplicativo da sua instituição financeira e utilizar apenas uma das opções.<br><br><b>Pix Copia e Cola</b><br><font color='Blue'>{0}</font>", this.Boleto.QRCode);
+                    string qrCode = QRCodeHelper.GerarQrCode(this.Boleto.QRCode);
+                    string fnQRCode = string.Format("data:image/jpeg;base64,{0}", qrCode);
+                    return html.ToString().Replace("@INSTRUCOES", _instrucoesHtml)
+                        .Replace("@QRCODE", string.Format("<img class=\"qrcode\" src=\"{0}\" />", fnQRCode))
+                        .Replace("@COPIARCOLAR", copiarColar);
+                }
             }
             catch (Exception ex)
             {
@@ -797,6 +807,10 @@ namespace BoletoNet
 
                     case (int)Bancos.C6Bank:
                         agenciaCodigoCedente = string.Format("{0} / {1}", Cedente.ContaBancaria.Agencia, Cedente.Codigo);
+                        break;
+
+                    case (int)Bancos.SerFinance:
+                        agenciaCodigoCedente = string.Format("{0}/{1}-{2}", Cedente.ContaBancaria.Agencia, Utils.FormatCode(Cedente.ContaBancaria.Conta, 8), Cedente.ContaBancaria.DigitoConta);
                         break;
 
                     default:
