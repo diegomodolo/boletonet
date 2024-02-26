@@ -258,8 +258,8 @@ namespace BoletoNet
 
 
                 string vCpfCnpjPag = "00";
-                if (boleto.Sacado.CPFCNPJ.Length.Equals(11)) vCpfCnpjPag = "01"; //Cpf � sempre 11;
-                else if (boleto.Sacado.CPFCNPJ.Length.Equals(14)) vCpfCnpjPag = "02"; //Cnpj � sempre 14;
+                if (boleto.Sacado.CPFCNPJ.Length.Equals(11)) vCpfCnpjPag = "01"; //Cpf é sempre 11;
+                else if (boleto.Sacado.CPFCNPJ.Length.Equals(14)) vCpfCnpjPag = "02"; //Cnpj é sempre 14;
 
                 reg.CamposEDI.Add(new TCampoRegistroEDI(TTiposDadoEDI.ediNumericoSemSeparador_, 0219, 002, 0, vCpfCnpjPag, '0'));
                 reg.CamposEDI.Add(new TCampoRegistroEDI(TTiposDadoEDI.ediNumericoSemSeparador_, 0221, 014, 0, boleto.Sacado.CPFCNPJ, '0'));
@@ -904,6 +904,7 @@ namespace BoletoNet
             codigoBarra.LinhaDigitavel = grupo1 + grupo2 + grupo3 + grupo4 + grupo5;
 
         }
+
         private static string CalcularDvModulo10SafraNovo(string texto)
         {
             int soma = 0, peso = 2;
@@ -941,6 +942,8 @@ namespace BoletoNet
 
             for (var i = texto.Length - 1; i >= 0; i--)
             {
+
+
                 var result = Convert.ToInt32(texto.Substring(i, 1)) * peso;
                 if (result > 9 && peso == 2)
                 {
