@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using BoletoNet.Enums;
 
 namespace BoletoNet
 {
@@ -217,6 +218,17 @@ namespace BoletoNet
                                 strline = boleto.Banco.GerarDetalheSegmentoRRemessa(boleto, numeroRegistroDetalhe, TipoArquivo.CNAB240);
                                 incluiLinha.WriteLine(strline);
                                 OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoR);
+                                numeroRegistro++;
+                                numeroRegistroDetalhe++;
+                            }
+
+                            //// Segmento Y
+                            if (boleto.TipoChavePix > TipoChavePix.Nenhum && !string.IsNullOrWhiteSpace(boleto.ChavePix))
+                            {
+                                strline = boleto.Banco.GerarDetalheSegmentoYRemessa(boleto, numeroRegistroDetalhe, TipoArquivo.CNAB240);
+                                incluiLinha.WriteLine(strline);
+
+                                OnLinhaGerada(boleto, strline, EnumTipodeLinha.DetalheSegmentoY);
                                 numeroRegistro++;
                                 numeroRegistroDetalhe++;
                             }

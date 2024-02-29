@@ -655,6 +655,21 @@ namespace BoletoNet
 
         public DateTime? DataDescontoAntecipacao3 { get; set; }
         public decimal? ValorDescontoAntecipacao3 { get; set; }
+
+        /// <summary>
+        /// Tipo da chave pix do qrCode na remessa
+        /// </summary>
+        public TipoChavePix TipoChavePix { get; set; }
+
+        /// <summary>
+        /// Chave pix para gerar o qrCode na remessa
+        /// </summary>
+        public string ChavePix { get; set; }
+
+        /// <summary>
+        /// Identificador único do pix que irá gerar o qrCode na remessa
+        /// </summary>
+        public string CodigoIdentificacaoQrCodePix { get; set; }
         
         #endregion Properties
 

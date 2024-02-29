@@ -26,11 +26,11 @@ namespace BoletoNet
             set { _listaDetalhes = value; }
         }
         #endregion Propriedades
-        
+
         #region Construtores
 
         public ArquivoRetornoCNAB240()
-		{
+        {
             this.TipoArquivo = TipoArquivo.CNAB240;
         }
 
@@ -58,19 +58,20 @@ namespace BoletoNet
         public override void LerArquivoRetorno(IBanco banco, Stream arquivo)
         {
             try
-            {
+             {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
                 string linha = "";
+
+                DetalheRetornoCNAB240 detalheAnterior = null;
 
                 DetalheRetornoCNAB240 detalheAnterior = null;
 
                 string numeroRemessa = string.Empty;
                 while ((linha = stream.ReadLine()) != null)
                 {
-                    if (!String.IsNullOrEmpty(linha))
+                    if (!string.IsNullOrEmpty(linha))
                     {
-
-                        DetalheRetornoCNAB240 detalheRetorno = new DetalheRetornoCNAB240();
+                        var detalheRetorno = new DetalheRetornoCNAB240();
 
                         switch (linha.Substring(7, 1))
                         {
@@ -133,8 +134,8 @@ namespace BoletoNet
                         }
 
                     }
-
                 }
+
                 stream.Close();
             }
             catch (Exception ex)
