@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BoletoNet.Enums;
 
 namespace BoletoNet
 {
@@ -100,12 +99,6 @@ namespace BoletoNet
         public string CidadeSacador { get; set; }
         public string UFSacador { get; set; }
 
-        public TipoChavePix TipoChavePix { get; set; }
-
-        public string UrlQrCodePix { get; set; }
-
-        public string CodigoTransacaoPix { get; set; }
-
         #endregion
 
         #region Métodos de Instância
@@ -117,9 +110,7 @@ namespace BoletoNet
                 _registro = Registro;
 
                 if (registro.Substring(13, 1) != "Y")
-                {
                     throw new Exception("Registro inválido. O detalhe não possuí as características do segmento Y.");
-                }
 
                 CodigoMovimento = Convert.ToInt32(registro.Substring(15, 2));
                 IdentificacaoRegistro = Convert.ToInt32(registro.Substring(17, 4));

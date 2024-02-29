@@ -13,10 +13,9 @@ namespace BoletoNet
         DetalheSegmentoR = 5,
         TraillerDeLote = 6,
         TraillerDeArquivo = 7,
-        DetalheSegmentoS = 8,
-        DetalheSegmentoY = 9
+        DetalheSegmentoS = 8
     }
-
+    
     public class LinhaDeArquivoGeradaArgs : EventArgs
     {
         private readonly string _linha;
