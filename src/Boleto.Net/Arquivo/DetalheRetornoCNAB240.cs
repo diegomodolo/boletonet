@@ -57,6 +57,8 @@ namespace BoletoNet
             set { _segmentoT = value; }
         }
 
+        public DetalheSegmentoYRetornoCNAB240 SegmentoY { get; set; }
+
         public DetalheSegmentoURetornoCNAB240 SegmentoU
         {
             get { return _segmentoU; }

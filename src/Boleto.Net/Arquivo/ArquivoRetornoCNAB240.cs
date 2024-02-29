@@ -26,11 +26,11 @@ namespace BoletoNet
             set { _listaDetalhes = value; }
         }
         #endregion Propriedades
-        
+
         #region Construtores
 
         public ArquivoRetornoCNAB240()
-		{
+        {
             this.TipoArquivo = TipoArquivo.CNAB240;
         }
 
@@ -58,16 +58,17 @@ namespace BoletoNet
         public override void LerArquivoRetorno(IBanco banco, Stream arquivo)
         {
             try
-             {
+            {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
                 string linha = "";
 
+                DetalheRetornoCNAB240 detalheAnterior = null;
+
                 while ((linha = stream.ReadLine()) != null)
                 {
-                    if (!String.IsNullOrEmpty(linha))
+                    if (!string.IsNullOrEmpty(linha))
                     {
-
-                        DetalheRetornoCNAB240 detalheRetorno = new DetalheRetornoCNAB240();
+                        var detalheRetorno = new DetalheRetornoCNAB240();
 
                         switch (linha.Substring(7, 1))
                         {
@@ -96,9 +97,22 @@ namespace BoletoNet
                                     linha = stream.ReadLine();
                                     detalheRetorno.SegmentoU = banco.LerDetalheSegmentoURetornoCNAB240(linha);
 
-                                    OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);                                    
-
+                                    OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);
                                 }
+                                else if (linha.Substring(13, 1) == "Y")
+                                {
+                                    detalheRetorno.SegmentoY = banco.LerDetalheSegmentoYRetornoCNAB240(linha);
+
+                                    if (detalheAnterior != null)
+                                    {
+                                        detalheAnterior.SegmentoY = detalheRetorno.SegmentoY;
+                                    }
+
+                                    OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoY);
+                                }
+
+                                detalheAnterior = detalheRetorno;
+
                                 ListaDetalhes.Add(detalheRetorno);
                                 break;
                             case "5": //Trailler de lote
@@ -110,8 +124,8 @@ namespace BoletoNet
                         }
 
                     }
-
                 }
+
                 stream.Close();
             }
             catch (Exception ex)
