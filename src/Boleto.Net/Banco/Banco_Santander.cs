@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Web.UI;
 using BoletoNet.Util;
 using System.Linq;
-using BoletoNet.Enums;
 using BoletoNet.Excecoes;
 
 [assembly: WebResource("BoletoNet.Imagens.033.jpg", "image/jpg")]
@@ -1040,7 +1039,6 @@ namespace BoletoNet
                 throw new Exception("Erro durante a geração do SEGMENTO Q DO DETALHE do arquivo de REMESSA.", ex);
             }
         }
-
         public override string GerarDetalheSegmentoRRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo)
         {
             try
@@ -1193,64 +1191,6 @@ namespace BoletoNet
                 throw new Exception("Erro durante a geração do SEGMENTO R DO DETALHE do arquivo de REMESSA.", ex);
             }
         }
-
-
-        public override string GerarDetalheSegmentoYRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo)
-        {
-            try
-            {
-                if (boleto.TipoChavePix == TipoChavePix.Nenhum || string.IsNullOrWhiteSpace(boleto.ChavePix))
-                {
-                    return string.Empty;
-                }
-
-                //Código do Banco na compensação ==> 001 - 003
-                var segmentoY = Utils.FormatCode(Codigo.ToString(), "0", 3, true);
-
-                //Numero do lote remessa ==> 004 - 007
-                segmentoY += Utils.FitStringLength("1", 4, 4, '0', 0, true, true, true);
-
-                //Tipo de registro ==> 008 - 008
-                segmentoY += "3";
-
-                //Nº seqüencial do registro no lote ==> 009 - 013
-                segmentoY += Utils.FitStringLength(numeroRegistro.ToString(), 5, 5, '0', 0, true, true, true);
-
-                //Cód. segmento do registro detalhe ==> 014 - 014
-                segmentoY += "Y";
-
-                //Reservado (uso Banco) ==> 015 - 015
-                segmentoY += " ";
-
-                //Código de movimento remessa ==> 016 - 017
-                segmentoY += ObterCodigoDaOcorrencia(boleto);
-
-                //Identificação Registro ==> 018 - 019
-                segmentoY += "03";
-
-                //Reservado (uso Banco) ==> 020 - 080
-                segmentoY += new string(' ', 61);
-
-                //Tipo da chave pix ==> 081 - 081
-                segmentoY += (int)boleto.TipoChavePix;
-
-                //Chave pix ==> 082 - 158
-                segmentoY += Utils.FitStringLength(boleto.ChavePix ?? string.Empty, 77, 77, ' ', 0, true, true, false);
-
-                //Código de identificação do qrCode ==> 159 - 193
-                segmentoY += Utils.FitStringLength(boleto.CodigoIdentificacaoQrCodePix ?? string.Empty, 35, 35, ' ', 0, true, true, false);
-
-                //Reservado (uso Banco) ==> 194 - 240
-                segmentoY += new string(' ', 47);
-                
-                return Utils.SubstituiCaracteresEspeciais(segmentoY);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro durante a geração do SEGMENTO Y DO DETALHE do arquivo de REMESSA.", ex);
-            }
-        }
-
         public override string GerarDetalheSegmentoSRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo)
         {
             try
@@ -2146,30 +2086,19 @@ namespace BoletoNet
         {
             try
             {
-                var detalhe = new DetalheSegmentoYRetornoCNAB240(registro);
+                DetalheSegmentoYRetornoCNAB240 detalhe = new DetalheSegmentoYRetornoCNAB240(registro);
 
                 if (registro.Substring(13, 1) != "Y")
                     throw new Exception("Registro inválido. O detalhe não possuí as características do segmento Y.");
 
                 detalhe.CodigoMovimento = Convert.ToInt32(registro.Substring(15, 2));
-                detalhe.IdentificacaoRegistro = Convert.ToInt32(registro.Substring(17, 2));
-
-                //// Boleto SX gera a identificação 03 e demais 04
-                if (detalhe.IdentificacaoRegistro == 3)
-                {
-                    detalhe.TipoChavePix = (TipoChavePix)Convert.ToInt32(registro.Substring(80, 1));
-                    detalhe.UrlQrCodePix = registro.Substring(81, 77);
-                    detalhe.CodigoTransacaoPix = registro.Substring(158, 35);
-                }
-                else
-                {
-                    detalhe.IdentificacaoCheque1 = registro.Substring(19, 34);
-                    detalhe.IdentificacaoCheque2 = registro.Substring(53, 34);
-                    detalhe.IdentificacaoCheque3 = registro.Substring(87, 34);
-                    detalhe.IdentificacaoCheque4 = registro.Substring(121, 34);
-                    detalhe.IdentificacaoCheque5 = registro.Substring(155, 34);
-                    detalhe.IdentificacaoCheque6 = registro.Substring(189, 34);
-                }
+                detalhe.IdentificacaoRegistro = Convert.ToInt32(registro.Substring(17, 4));
+                detalhe.IdentificacaoCheque1 = registro.Substring(19, 34);
+                detalhe.IdentificacaoCheque2 = registro.Substring(43, 34);
+                detalhe.IdentificacaoCheque3 = registro.Substring(87, 34);
+                detalhe.IdentificacaoCheque4 = registro.Substring(121, 34);
+                detalhe.IdentificacaoCheque5 = registro.Substring(155, 34);
+                detalhe.IdentificacaoCheque6 = registro.Substring(189, 34);
 
                 return detalhe;
             }

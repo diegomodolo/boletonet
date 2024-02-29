@@ -493,19 +493,7 @@ namespace BoletoNet
 			}
 		}
 
-        public string GerarDetalheSegmentoYRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo)
-        {
-            try
-            {
-                return _IBanco.GerarDetalheSegmentoYRemessa(boleto, numeroRegistro, tipoArquivo);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro durante a geração dos registros de DETALHE do arquivo de REMESSA.", ex);
-            }
-        }
-
-        public string GerarTrailerArquivoRemessa(int numeroRegistro)
+		public string GerarTrailerArquivoRemessa(int numeroRegistro)
 		{
 			try
 			{
