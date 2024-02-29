@@ -94,6 +94,12 @@ namespace BoletoNet
         /// Gera os registros de detalhe do arquivo de remessa - SEGMENTO S
         /// </summary>
         string GerarDetalheSegmentoSRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo);
+
+        /// <summary>
+        /// Gera os registros de detalhe do arquivo de remessa - SEGMENTO Y
+        /// </summary>
+        string GerarDetalheSegmentoYRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo);
+
         /// <summary>
         /// Gera o Trailer de arquivo do arquivo de remessa
         /// </summary>
