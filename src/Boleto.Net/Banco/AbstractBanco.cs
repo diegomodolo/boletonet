@@ -230,6 +230,7 @@ namespace BoletoNet
             string _segmentoR = "";
             return _segmentoR;
         }
+
         /// <summary>
         /// Gera registros de detalhe do arquivo remessa - SEGMENTO S
         /// </summary>
@@ -238,6 +239,15 @@ namespace BoletoNet
             string _segmentoS = "";
             return _segmentoS;
         }
+
+        /// <summary>
+        /// Gera registros de detalhe do arquivo remessa - SEGMENTO Y PIX
+        /// </summary>
+        public virtual string GerarDetalheSegmentoYRemessa(Boleto boleto, int numeroRegistro, TipoArquivo tipoArquivo)
+        {
+            return string.Empty;
+        }
+
         /// <summary>
         /// Gera os registros de Trailer de arquivo do arquivo de remessa
         /// </summary>
