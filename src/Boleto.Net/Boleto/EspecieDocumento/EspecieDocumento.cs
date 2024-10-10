@@ -184,6 +184,9 @@ namespace BoletoNet
                     case ((int)Enums.Bancos.C6Bank):
                         _IEspecieDocumento = new EspecieDocumento_C6(codigoEspecie);
                         break;
+                    case 208:
+                        _IEspecieDocumento = new EspecieDocumento_BTG(codigoEspecie);
+                        break;
                     //77 - Banco Inter
                     case ((int)Enums.Bancos.Inter):
                         _IEspecieDocumento = new EspecieDocumento_Inter(codigoEspecie);

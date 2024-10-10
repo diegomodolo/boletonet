@@ -7,7 +7,7 @@ namespace BoletoNet
     public class DetalheSegmentoTRetornoCNAB240
     {
 
-        #region Vari·veis
+        #region Vari√°veis
 
         private int _codigoBanco;
         private int _idCodigoMovimento;
@@ -17,9 +17,9 @@ namespace BoletoNet
         private long _conta;
         private string _digitoConta;
         private int _dacAgConta;
-        private string _nossoNumero; //identificaÁ„o do tÌtulo no banco
+        private string _nossoNumero; //identifica√ß√£o do t√≠tulo no banco
         private int _codigoCarteira;
-        private string _numeroDocumento; //n˙mero utilizado pelo cliente para a identificaÁ„o do tÌtulo
+        private string _numeroDocumento; //n√∫mero utilizado pelo cliente para a identifica√ß√£o do t√≠tulo
         private DateTime _dataVencimento;
         private decimal _valorTitulo;
         private string _identificacaoTituloEmpresa;
@@ -191,7 +191,7 @@ namespace BoletoNet
 
         #endregion
 
-        #region MÈtodos de Inst‚ncia
+        #region M√©todos de Inst√¢ncia
 
         public void LerDetalheSegmentoTRetornoCNAB240(string registro)
         {
@@ -200,7 +200,7 @@ namespace BoletoNet
                 _registro = registro;
 
                 if (registro.Substring(13, 1) != "T")
-                    throw new Exception("Registro inv·lido. O detalhe n„o possuÌ as caracterÌsticas do segmento T.");
+                    throw new Exception("Registro inv√°lido. O detalhe n√£o possu√≠ as caracter√≠sticas do segmento T.");
 
                 CodigoBanco = Convert.ToInt32(registro.Substring(0, 3));
                 idCodigoMovimento = Convert.ToInt32(registro.Substring(15, 2));

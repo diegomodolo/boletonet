@@ -117,6 +117,10 @@ namespace BoletoNet
                         // SANTANDER
                         this._ICodigoMovimento = new CodigoMovimento_Santander(codigoMovimento);
                         break;
+                    case 208:
+                        // BTG
+                        this._ICodigoMovimento = new CodigoMovimento_BTG(codigoMovimento);
+                        break;
                     default:
                         throw new Exception("Código do banco não implementando: " + codigoBanco);
                 }

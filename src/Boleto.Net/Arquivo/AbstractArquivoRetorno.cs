@@ -8,7 +8,7 @@ namespace BoletoNet
     {
         public event EventHandler<LinhaDeArquivoLidaArgs> LinhaDeArquivoLida;
  
-        #region Vari·veis
+        #region Vari√°veis
 
         private IBanco _banco;
         private TipoArquivo _tipoArquivo;
@@ -39,7 +39,7 @@ namespace BoletoNet
                     _arquivoRetorno = new ArquivoRetornoCrb643();
                     break;
                 default:
-                    throw new NotImplementedException("Arquivo n„o implementado.");
+                    throw new NotImplementedException("Arquivo n√£o implementado.");
             }
         }
 
@@ -86,7 +86,7 @@ namespace BoletoNet
 
         #endregion
 
-        #region MÈtodos
+        #region M√©todos
 
         /// <summary>
         /// Gera o arquivo de remessa

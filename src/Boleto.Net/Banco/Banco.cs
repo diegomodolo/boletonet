@@ -189,8 +189,11 @@ namespace BoletoNet
                     case 77:
                         _IBanco = new Banco_Inter();
                         break;
-                    default:
-						throw new Exception("Código do banco não implementando: " + codigoBanco);
+					case 208:
+						_IBanco = new Banco_BTG();
+						break;
+					default:
+						throw new Exception("Código do banco não implementando: " + codigoBanco);					
 				}
 			}
 			catch (Exception ex)

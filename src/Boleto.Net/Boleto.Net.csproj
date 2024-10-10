@@ -122,6 +122,7 @@
     <Compile Include="Banco\Carteiras\TipoCarteiraAttribute.cs" />
     <Compile Include="Banco\Banco_Maxima.cs" />
     <Compile Include="Boleto\Carteira\Carteira_CrediSIS.cs" />
+    <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_BTG.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Nordeste.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Itau.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Santander.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicredi.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Banestes.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Inter.cs" />
+    <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_BTG.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_C6.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_CrediSIS.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Safra.cs" />
@@ -385,7 +387,7 @@
     <EmbeddedResource Include="Imagens\743.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imagens\208.jpg" />
+    <EmbeddedResource Include="Imagens\208.jpg" />
     <EmbeddedResource Include="Imagens\530.jpg" />
     <EmbeddedResource Include="Imagens\336.jpg" />
     <EmbeddedResource Include="Imagens\136.jpg" />
