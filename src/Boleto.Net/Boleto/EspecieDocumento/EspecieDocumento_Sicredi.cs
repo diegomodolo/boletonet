@@ -75,9 +75,9 @@ namespace BoletoNet
         {
             switch (codigo)
             {
-                case "A": return EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao;
-                case "B": return EnumEspecieDocumento_Sicredi.DuplicataRural;
-                case "C": return EnumEspecieDocumento_Sicredi.NotaPromissoria;
+                case "A": return  EnumEspecieDocumento_Sicredi.DuplicataMercantilIndicacao;
+                case "B": return  EnumEspecieDocumento_Sicredi.DuplicataRural;
+                case "C": return  EnumEspecieDocumento_Sicredi.NotaPromissoria;
                 case "D": return EnumEspecieDocumento_Sicredi.NotaPromissoriaRural;
                 case "E": return EnumEspecieDocumento_Sicredi.NotaSeguros;
                 case "G": return EnumEspecieDocumento_Sicredi.Recibo;
