@@ -8,7 +8,7 @@ namespace BoletoNet
     public class DetalheSegmentoURetornoCNAB240
     {
 
-        #region Vari·veis
+        #region Vari√°veis
         Decimal _Servico_Codigo_Movimento_Retorno;
         decimal _jurosMultaEncargos;
         decimal _valorDescontoConcedido;
@@ -148,7 +148,7 @@ namespace BoletoNet
 
         #endregion
 
-        #region MÈtodos de Inst‚ncia
+        #region M√©todos de Inst√¢ncia
 
         public void LerDetalheSegmentoURetornoCNAB240(string registro)
         {
@@ -157,7 +157,7 @@ namespace BoletoNet
                 _registro = Registro;
 
                 if (registro.Substring(13, 1) != "U")
-                    throw new Exception("Registro inv·lido. O detalhe n„o possuÌ as caracterÌsticas do segmento U.");
+                    throw new Exception("Registro inv√°lido. O detalhe n√£o possu√≠ as caracter√≠sticas do segmento U.");
 
                 string dataOcorrenciaSacado = "";
                 if (registro.Substring(153, 4) != "    ")

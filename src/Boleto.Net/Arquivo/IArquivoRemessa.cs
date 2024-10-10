@@ -8,7 +8,7 @@ namespace BoletoNet
     public interface IArquivoRemessa
     {
         /// <summary>
-        /// MÈtodo que far· a verificaÁ„o se a classe est· devidamente implementada para a geraÁ„o da Remessa
+        /// M√©todo que far√° a verifica√ß√£o se a classe est√° devidamente implementada para a gera√ß√£o da Remessa
         /// </summary>
         bool ValidarArquivoRemessa(string numeroConvenio, IBanco banco, Cedente cedente, Boletos boletos, int numeroArquivoRemessa, out string mensagem);
 

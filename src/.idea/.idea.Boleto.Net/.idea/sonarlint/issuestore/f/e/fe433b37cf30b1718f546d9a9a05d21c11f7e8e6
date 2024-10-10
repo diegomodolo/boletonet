@@ -1,21 +1,24 @@
 
-csharpsquid:S1192|"DDefine a constant instead of using this literal 'ddMMyyyy' 12 times.(ŒÍ†H8Ò×â‚2J$0a8e5a8d-f7ee-426c-9236-0ec2485d94a3
-ƒcsharpsquid:S112!"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8Û¥Íİ‚2J$bbf69aba-6c36-4134-b523-90fa42feefe1
-ƒcsharpsquid:S112#"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8Û¥Íİ‚2J$e53a6468-f616-4f9c-8504-dcdc7e710540
-ƒcsharpsquid:S112*"5'System.Exception' should not be thrown by user code.(³‚üÿÿÿÿ8Û¥Íİ‚2J$d287f5e0-dd59-4d1d-9349-c731fed2be65
-ƒcsharpsquid:S112;"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8Ò×â‚2J$7ab90b37-8e17-42f3-a76e-66e4d9f4373f
-ƒcsharpsquid:S112="5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8Ò×â‚2J$dc018959-492c-4288-9591-480a73b9ae66
-~csharpsquid:S112D"5'System.Exception' should not be thrown by user code.(À‹¼8Ò×â‚2J$62fed98c-657b-46e1-b4bf-6bfb7e330259
-ƒcsharpsquid:S112V"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8Ò×â‚2J$f07b49d2-289c-4b42-842f-d63b98dae407
-ƒcsharpsquid:S112X"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8Ò×â‚2J$36a2b8a9-1129-4e4a-b27f-2b83ab26ef6e
-ƒcsharpsquid:S112_"5'System.Exception' should not be thrown by user code.(…â­ùÿÿÿÿ8Ò×â‚2J$7ed3aff8-b700-4fd6-8a86-a76bd141facd
-csharpsquid:S112œ"5'System.Exception' should not be thrown by user code.(Ó¯Ÿ«8Ò×â‚2J$306de62c-b864-44e9-85e3-2a7210fe3774
-„csharpsquid:S112¿"5'System.Exception' should not be thrown by user code.(õŒéÿÿÿÿÿ8Ò×â‚2J$00155a44-bd94-499f-a678-2277e8fbe1ee
-csharpsquid:S112å"5'System.Exception' should not be thrown by user code.(±şÔ™8Ò×â‚2J$29d45c90-82cc-462c-a99e-508126113851
-„csharpsquid:S112Á"5'System.Exception' should not be thrown by user code.(š¸Êüÿÿÿÿ8Ò×â‚2J$43d2f6ed-5ff5-4d99-93e6-5056f275a849
-„csharpsquid:S112›"5'System.Exception' should not be thrown by user code.(¼Æ„—ûÿÿÿÿ8Ò×â‚2J$0f2a2a41-9241-4ba3-b05f-a4d774ea7a20
-csharpsquid:S112ƒ"5'System.Exception' should not be thrown by user code.(ŠÂæè8·“Õâ‚2J$7c445efa-550a-4f1d-a77b-3c3b8e7fbc66
-csharpsquid:S112£"5'System.Exception' should not be thrown by user code.(ä©¤Ï8±ˆØâ‚2J$d177ece9-cc8e-4fa2-983e-6b00a2ddf7a6
-^csharpsquid:S112É"5'System.Exception' should not be thrown by user code.(İÄøŞÿÿÿÿÿ8ÇËØâ‚2
-mcsharpsquid:S125N"Remove this commented out code.(ù”Ê‡ûÿÿÿÿ8‚Ò×â‚2J$204cc223-44ef-45b4-b4e3-dcfce20c37ee
-icsharpsquid:S125’"Remove this commented out code.(Ú°à¬8‚Ò×â‚2J$61e33992-01ea-49f9-90ce-e986fb018058
+hcsharpsquid:S1854">Remove this useless assignment to local variable 'codigoTemp'.(ä¢ù•ùÿÿÿÿ8¯í×¨‡2
+gcsharpsquid:S1192|"DDefine a constant instead of using this literal 'ddMMyyyy' 12 times.(ŒÍ†H8¯í×¨‡2
+]csharpsquid:S112!"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112#"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112*"5'System.Exception' should not be thrown by user code.(³‚üÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112;"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112="5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8¯í×¨‡2
+Xcsharpsquid:S112D"5'System.Exception' should not be thrown by user code.(À‹¼8¯í×¨‡2
+]csharpsquid:S112V"5'System.Exception' should not be thrown by user code.(‚áúñÿÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112X"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8¯í×¨‡2
+]csharpsquid:S112_"5'System.Exception' should not be thrown by user code.(…â­ùÿÿÿÿ8¯í×¨‡2
+Ycsharpsquid:S112œ"5'System.Exception' should not be thrown by user code.(Ó¯Ÿ«8¯í×¨‡2
+^csharpsquid:S112¿"5'System.Exception' should not be thrown by user code.(õŒéÿÿÿÿÿ8¯í×¨‡2
+Ycsharpsquid:S112æ"5'System.Exception' should not be thrown by user code.(±şÔ™8¯í×¨‡2
+^csharpsquid:S112Ã"5'System.Exception' should not be thrown by user code.(š¸Êüÿÿÿÿ8¯í×¨‡2
+^csharpsquid:S112"5'System.Exception' should not be thrown by user code.(¼Æ„—ûÿÿÿÿ8¯í×¨‡2
+Ycsharpsquid:S112…"5'System.Exception' should not be thrown by user code.(ŠÂæè8¯í×¨‡2
+Ycsharpsquid:S112¥"5'System.Exception' should not be thrown by user code.(ä©¤Ï8¯í×¨‡2
+^csharpsquid:S112Ë"5'System.Exception' should not be thrown by user code.(İÄøŞÿÿÿÿÿ8¯í×¨‡2
+Wcsharpsquid:S1481‚"2Remove the unused local variable 'codigoCobranca'.(æŞ ä8¯í×¨‡2
+Ocsharpsquid:S1481µ"*Remove the unused local variable 'campo4'.(ªşÎÿ8¯í×¨‡2
+Gcsharpsquid:S125N"Remove this commented out code.(ù”Ê‡ûÿÿÿÿ8¯í×¨‡2
+Ccsharpsquid:S125”"Remove this commented out code.(Ú°à¬8¯í×¨‡2

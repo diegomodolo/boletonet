@@ -1,0 +1,121 @@
+
+|csharpsquid:S3776˜
+"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¹ÌÑúÿÿÿÿ8˜¶±©‡2
+€csharpsquid:S3973Ú	"VUse curly braces or indentation to denote the code conditionally executed by this 'if'(·€îøÿÿÿÿ8˜¶±©‡2
+gcsharpsquid:S4136‹"=All 'GerarHeaderRemessa' method overloads should be adjacent.(¹¸‹éÿÿÿÿÿ8˜¶±©‡2
+Fcsharpsquid:S1643Ø"Use a StringBuilder instead.(ÖŠÖ´ÿÿÿÿÿ8˜¶±©‡2
+Acsharpsquid:S1643Ú"Use a StringBuilder instead.(¢»¸Ş8˜¶±©‡2
+Fcsharpsquid:S1643´
+"Use a StringBuilder instead.(„äúÕşÿÿÿÿ8˜¶±©‡2
+Acsharpsquid:S1643Â
+"Use a StringBuilder instead.(’Œ‡Ö8˜¶±©‡2
+Acsharpsquid:S1643Í
+"Use a StringBuilder instead.(Èô–´8˜¶±©‡2
+Fcsharpsquid:S1643Ò
+"Use a StringBuilder instead.(÷î’áúÿÿÿÿ8˜¶±©‡2
+Acsharpsquid:S1643é
+"Use a StringBuilder instead.(´Æ§8˜¶±©‡2
+Acsharpsquid:S1643î
+"Use a StringBuilder instead.(ÑèÚû8˜¶±©‡2
+Fcsharpsquid:S1643ô
+"Use a StringBuilder instead.(”œ¥‰øÿÿÿÿ8™¶±©‡2
+Fcsharpsquid:S1643ù
+"Use a StringBuilder instead.(¥Àìåûÿÿÿÿ8™¶±©‡2
+csharpsquid:S1192€"WDefine a constant instead of using this literal 'Tipo de arquivo inexistente.' 5 times.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+hcsharpsquid:S1192¢"DDefine a constant instead of using this literal 'ddMMyyyy' 12 times.(ÛÈ8™¶±©‡2
+mcsharpsquid:S1192´
+"CDefine a constant instead of using this literal 'Boleto: ' 8 times.(„äúÕşÿÿÿÿ8™¶±©‡2
+[csharpsquid:S2259¯
+"1'boletos' is null on at least one execution path.(ÑÕ¾üÿÿÿÿ8™¶±©‡2
+Xcsharpsquid:S112‰"5'System.Exception' should not be thrown by user code.(‰ˆŸK8™¶±©‡2
+Ycsharpsquid:S112’"5'System.Exception' should not be thrown by user code.(÷µ¿‘8™¶±©‡2
+^csharpsquid:S112€"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112ˆ"5'System.Exception' should not be thrown by user code.(…â­ùÿÿÿÿ8™¶±©‡2
+Ycsharpsquid:S112º"5'System.Exception' should not be thrown by user code.(Ó¯Ÿ«8™¶±©‡2
+^csharpsquid:S112Õ"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112İ"5'System.Exception' should not be thrown by user code.(³‚üÿÿÿÿ8™¶±©‡2
+Ycsharpsquid:S112¯"5'System.Exception' should not be thrown by user code.(±şÔ™8™¶±©‡2
+^csharpsquid:S112Ã"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+Ycsharpsquid:S112Ë"5'System.Exception' should not be thrown by user code.(À‹¼8™¶±©‡2
+^csharpsquid:S112ñ"5'System.Exception' should not be thrown by user code.(õŒéÿÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112„"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+Xcsharpsquid:S112Œ"5'System.Exception' should not be thrown by user code.(ƒÎ²$8™¶±©‡2
+^csharpsquid:S112¤"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112ö"5'System.Exception' should not be thrown by user code.(š¸Êüÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112É"5'System.Exception' should not be thrown by user code.(¼Æ„—ûÿÿÿÿ8™¶±©‡2
+Ycsharpsquid:S112­"5'System.Exception' should not be thrown by user code.(ŠÂæè8™¶±©‡2
+Ycsharpsquid:S112ê"5'System.Exception' should not be thrown by user code.(Ìï÷Ì8™¶±©‡2
+Ycsharpsquid:S112˜"5'System.Exception' should not be thrown by user code.(ä©¤Ï8™¶±©‡2
+^csharpsquid:S112Ê"5'System.Exception' should not be thrown by user code.(İÄøŞÿÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112Û	"5'System.Exception' should not be thrown by user code.(¾ØÈùÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112
+"5'System.Exception' should not be thrown by user code.(‘›ÃÉúÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112£"5'System.Exception' should not be thrown by user code.(µ€Ä®ıÿÿÿÿ8™¶±©‡2
+Ycsharpsquid:S112«"5'System.Exception' should not be thrown by user code.(Í•”ó8™¶±©‡2
+^csharpsquid:S112Ä"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112€"5'System.Exception' should not be thrown by user code.(‹Í»Ûùÿÿÿÿ8™¶±©‡2
+^csharpsquid:S112Ÿ"5'System.Exception' should not be thrown by user code.(Àö­óÿÿÿÿÿ8™¶±©‡2
+ccsharpsquid:S1117æ"9Rename 'header' which hides the field with the same name.(éëİüÿÿÿÿ8™¶±©‡2
+^csharpsquid:S1117·"9Rename 'header' which hides the field with the same name.(Ş¹È 8™¶±©‡2
+ccsharpsquid:S1117Ô"9Rename 'header' which hides the field with the same name.(ºö•ïøÿÿÿÿ8™¶±©‡2
+Gcsharpsquid:S125D"Remove this commented out code.(‰¶¨Ëşÿÿÿÿ8™¶±©‡2
+Ccsharpsquid:S125ß"Remove this commented out code.(Ú°à¬8™¶±©‡2
+Hcsharpsquid:S125õ"Remove this commented out code.(ù”Ê‡ûÿÿÿÿ8™¶±©‡2
+Hcsharpsquid:S125Ÿ"Remove this commented out code.(¶ŸËşÿÿÿÿ8™¶±©‡2
+Ccsharpsquid:S125À"Remove this commented out code.(ùÿçó8™¶±©‡2
+Ccsharpsquid:S125Å"Remove this commented out code.(Ú°à¬8™¶±©‡2
+Hcsharpsquid:S125×"Remove this commented out code.(Ô¦–Îşÿÿÿÿ8™¶±©‡2
+Bcsharpsquid:S125Ò"Remove this commented out code.(ÿ½©a8™¶±©‡2
+Ccsharpsquid:S125á	"Remove this commented out code.(ûö›¼8™¶±©‡2
+Hcsharpsquid:S125÷	"Remove this commented out code.(Ø’²®üÿÿÿÿ8™¶±©‡2
+Ccsharpsquid:S125‰
+"Remove this commented out code.(æ…Ü»8š¶±©‡2
+Ccsharpsquid:S125¼
+"Remove this commented out code.(Ú°à¬8š¶±©‡2
+Hcsharpsquid:S125Ë
+"Remove this commented out code.(œ®Ášüÿÿÿÿ8š¶±©‡2
+Ccsharpsquid:S125Ö
+"Remove this commented out code.(Ú°à¬8š¶±©‡2
+Hcsharpsquid:S125Ü
+"Remove this commented out code.(í Í×úÿÿÿÿ8š¶±©‡2
+Hcsharpsquid:S125İ
+"Remove this commented out code.(®ĞÑÿÿÿÿÿ8š¶±©‡2
+Ccsharpsquid:S125Ş
+"Remove this commented out code.(ô§Ú8š¶±©‡2
+Ccsharpsquid:S125ß
+"Remove this commented out code.(ü¡êù8š¶±©‡2
+Hcsharpsquid:S125à
+"Remove this commented out code.(”œÿùÿÿÿÿ8š¶±©‡2
+Hcsharpsquid:S125â
+"Remove this commented out code.(—‘ºÈøÿÿÿÿ8š¶±©‡2
+Ccsharpsquid:S125ã
+"Remove this commented out code.(æ¥Õ…8š¶±©‡2
+Bcsharpsquid:S125ä
+"Remove this commented out code.(«æÖN8š¶±©‡2
+Bcsharpsquid:S125æ"Remove this commented out code.(“öÍu8š¶±©‡2
+Ccsharpsquid:S125’"Remove this commented out code.(É¶à¾8š¶±©‡2
+Hcsharpsquid:S125“"Remove this commented out code.(õ¯Œ·úÿÿÿÿ8š¶±©‡2
+Ccsharpsquid:S125˜"Remove this commented out code.(ØæËÇ8š¶±©‡2
+=csharpsquid:S4663…
+"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663‘
+"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663œ
+"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663®
+"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663€"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663™"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663›"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663¢"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663¤"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663¦"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663º"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663¼"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663¿"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663”"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663š"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663Ú"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663à"Remove this empty comment(è»»_8š¶±©‡2
+=csharpsquid:S4663û"Remove this empty comment(è»»_8š¶±©‡2

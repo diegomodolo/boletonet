@@ -1,0 +1,47 @@
+
+ˆcsharpsquid:S4136›"=All 'GerarHeaderRemessa' method overloads should be adjacent.(Õ÷É8º¨¹å‚2J$b98b5ea5-2a13-4587-a4ce-03f8483367f7
+–csharpsquid:S927›"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(Õ÷É8º¨¹å‚2J$5a1b857d-c7ed-421f-82ed-f6b0ba351c86
+–csharpsquid:S927§"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(³ıÂÅ8º¨¹å‚2J$cfddb611-98e2-45a9-8570-8e150ea68bae
+·csharpsquid:S927Ë"hRename parameter 'numeroRegistroDetalhes' to 'numeroRegistroDetalhe' to match the interface declaration.(÷¬Ãˆşÿÿÿÿ8º¨¹å‚2J$4b511c06-d62c-472e-9a3d-5886e5296ea3
+›csharpsquid:S927×"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(ŠÂ•®ùÿÿÿÿ8º¨¹å‚2J$a445e1e4-bdf3-45c1-be41-9f77b8a58cb3
+›csharpsquid:S927ã"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(ĞôµÇÿÿÿÿÿ8º¨¹å‚2J$85a5b6e9-9d20-46c8-9150-e9feb0b19e8f
+–csharpsquid:S927ï"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(ñíäÎ8º¨¹å‚2J$c462c6d0-e5bc-4572-972e-6480b261882c
+›csharpsquid:S927û"LRename parameter 'cedente' to 'cendente' to match the interface declaration.(Ò’ƒŞÿÿÿÿÿ8º¨¹å‚2J$94dfbe77-3b54-470b-9f5d-0d0e778c959a
+Ícsharpsquid:S1192£"}Define a constant instead of using this literal 'Erro durante a geraÃ§Ã£o do registro HEADER do arquivo de REMESSA.' 6 times.(€æ×œûÿÿÿÿ8º¨¹å‚2J$8a372002-b5c5-4fdd-9001-f07b1782a870
+Õcsharpsquid:S1192»"„Define a constant instead of using this literal 'Erro durante a geraÃ§Ã£o dos registros de DETALHE do arquivo de REMESSA.' 11 times.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$c8cfdf09-e852-46e4-beb1-ed57c838fcd8
+Îcsharpsquid:S1192Ç"~Define a constant instead of using this literal 'Erro durante a geraÃ§Ã£o do registro TRAILER do arquivo de REMESSA.' 6 times.(æÍù¤ÿÿÿÿÿ8º¨¹å‚2J$1f338687-822b-43a7-a81f-39339361b3f7
+}csharpsquid:S112"5'System.Exception' should not be thrown by user code.(ä‚¬n8º¨¹å‚2J$4c64d71d-3eb9-481c-a644-762a1e367cec
+„csharpsquid:S112À"5'System.Exception' should not be thrown by user code.(ÑÉØûÿÿÿÿÿ8º¨¹å‚2J$7c8e8a3f-b147-47aa-bc01-942a8f680567
+„csharpsquid:S112Å"5'System.Exception' should not be thrown by user code.(Ùù†¾ÿÿÿÿÿ8º¨¹å‚2J$b27cbf0d-49ed-4e7c-8706-d7a7c8f3c75f
+„csharpsquid:S112Õ"5'System.Exception' should not be thrown by user code.(ÃØûÿÿÿÿ8º¨¹å‚2J$6afc5c84-c01b-4d9c-9cbb-1c2113ff0a0c
+csharpsquid:S112á"5'System.Exception' should not be thrown by user code.(ƒ¯ãú8º¨¹å‚2J$e86cb7de-5d34-4839-8341-fc7069b6d4fa
+„csharpsquid:S112í"5'System.Exception' should not be thrown by user code.(³³‹„ûÿÿÿÿ8º¨¹å‚2J$38649a4e-ea8c-42a9-a8f9-b9c74f6605b1
+„csharpsquid:S112ù"5'System.Exception' should not be thrown by user code.(˜ç´šşÿÿÿÿ8º¨¹å‚2J$01b7a924-5f80-45fb-95b1-a3648e17f34d
+„csharpsquid:S112”"5'System.Exception' should not be thrown by user code.(¼µ·ÿÿÿÿÿ8º¨¹å‚2J$e9f00552-98c7-4aae-8865-9c79dd0a1d76
+„csharpsquid:S112£"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$e428752e-157d-4dc9-928b-7da05bfb261b
+„csharpsquid:S112¯"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$d6a5e468-48a4-4e7a-a760-c64dc2bf7cc9
+„csharpsquid:S112»"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$4aa5e3d1-0411-4fd8-92a1-b4c6f9f72236
+„csharpsquid:S112Ç"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8º¨¹å‚2J$cba8605f-b418-47ec-94da-4a5b1a9a9321
+„csharpsquid:S112Ó"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8º¨¹å‚2J$188a20f1-0469-4b20-b5e4-81e5ec83d836
+„csharpsquid:S112ß"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$db187454-4ec4-42e2-8c5b-addb95d0bb03
+„csharpsquid:S112ë"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$59778e97-ddde-404d-b0f1-07b41c39f564
+„csharpsquid:S112÷"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$a70902bf-33b5-4b2e-bafb-483207abe1c0
+„csharpsquid:S112ƒ"5'System.Exception' should not be thrown by user code.(€æ×œûÿÿÿÿ8º¨¹å‚2J$83990023-b0a1-4a1b-9533-25b76f384cd5
+„csharpsquid:S112"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$fa3bf81a-8fd4-47ca-80b8-61dc867a08a1
+„csharpsquid:S112›"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$afa14974-d188-4e82-bd0d-ee9e37526c21
+„csharpsquid:S112§"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$cf0d858e-d3e7-4682-ba85-edf702924e3e
+„csharpsquid:S112³"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$41f17720-071c-4572-ad8c-ab396b35faa2
+„csharpsquid:S112¿"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$771945ea-c6b8-4619-aa67-0e23efbae6a8
+„csharpsquid:S112Ë"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$4c59a601-4f87-41ed-9d00-23cbf1a2a05f
+„csharpsquid:S112×"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$3b4765df-66f1-4b0a-a11a-3b1787ea5288
+„csharpsquid:S112ã"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$5aa24da3-0295-4e8e-9e04-5eb2b799f8bb
+„csharpsquid:S112ï"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8º¨¹å‚2J$3148f326-2a51-4784-aa2e-554fb06a8c2e
+„csharpsquid:S112û"5'System.Exception' should not be thrown by user code.(Ãæ¹µøÿÿÿÿ8»¨¹å‚2J$0382db6e-09ee-42fe-8670-1a8afe2c7ebf
+„csharpsquid:S112‡"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8»¨¹å‚2J$a29c6af1-ef91-4a68-98a0-20d78115d582
+„csharpsquid:S112“"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8»¨¹å‚2J$c367bcf4-b872-4e9e-9ec0-664b58edebc0
+„csharpsquid:S112Ÿ"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8»¨¹å‚2J$2aec4dda-ccc8-4c10-921f-d80f51139517
+„csharpsquid:S112«"5'System.Exception' should not be thrown by user code.(æÍù¤ÿÿÿÿÿ8»¨¹å‚2J$405705d4-0315-4a59-9c33-ea1332278559
+„csharpsquid:S112·"5'System.Exception' should not be thrown by user code.(ÇˆµÑşÿÿÿÿ8»¨¹å‚2J$09adc0dd-1902-4c7f-9179-5f5f5b7cc476
+¡csharpsquid:S1479H"WConsider reworking this 'switch' to reduce the number of 'case's from 32 to at most 30.(‹Ê²Ë8»¨¹å‚2J$891bdd42-4f4a-4b93-bcca-fb04261bc9ee
+icsharpsquid:S125€"Remove this commented out code.(Ú°à¬8»¨¹å‚2J$fdd8d615-3959-410b-b7ac-26de488fd2d4
+ncsharpsquid:S125‚"Remove this commented out code.(éØ»Úûÿÿÿÿ8»¨¹å‚2J$51d3106c-53f5-413f-bd53-876c26f09df7

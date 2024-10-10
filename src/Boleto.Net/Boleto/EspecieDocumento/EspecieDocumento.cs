@@ -184,6 +184,9 @@ namespace BoletoNet
                     case ((int)Enums.Bancos.C6Bank):
                         _IEspecieDocumento = new EspecieDocumento_C6(codigoEspecie);
                         break;
+                    case 208:
+                        _IEspecieDocumento = new EspecieDocumento_BTG(codigoEspecie);
+                        break;
                     default:
                         throw new Exception("Código do banco não implementando: " + codigoBanco);
                 }

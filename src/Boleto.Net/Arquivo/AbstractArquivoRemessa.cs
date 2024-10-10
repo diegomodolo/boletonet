@@ -4,29 +4,29 @@ using System.IO;
 namespace BoletoNet
 {
     /// <summary>
-    /// Classe responsável por representar (de forma abstrata) o modelo de Arquivo para Remessa
+    /// Classe responsÃ¡vel por representar (de forma abstrata) o modelo de Arquivo para Remessa
     /// </summary>
     public abstract class AbstractArquivoRemessa: IArquivoRemessa
     {
         /// <summary>
-        /// Definição do evento
+        /// DefiniÃ§Ã£o do evento
         /// </summary>
         public event EventHandler<LinhaDeArquivoGeradaArgs> LinhaDeArquivoGerada;
 
-        #region Variáveis
+        #region VariÃ¡veis
         private readonly IArquivoRemessa _arquivoRemessa;
         #endregion
 
         #region Construtores
         /// <summary>
-        /// Cria uma nova instância abstrata de Arquivo para Remessa
+        /// Cria uma nova instÃ¢ncia abstrata de Arquivo para Remessa
         /// </summary>
         protected AbstractArquivoRemessa()
         {
         }
 
         /// <summary>
-        /// Cria uma nova instância abstrata de Arquivo para Remessa
+        /// Cria uma nova instÃ¢ncia abstrata de Arquivo para Remessa
         /// </summary>
         /// <param name="tipoArquivo">Tipo de Arquivo de Remesssa que deve ser gerado</param>
         public AbstractArquivoRemessa(TipoArquivo tipoArquivo)
@@ -46,7 +46,7 @@ namespace BoletoNet
                     _arquivoRemessa.LinhaDeArquivoGerada += new EventHandler<LinhaDeArquivoGeradaArgs>(_arquivoRemessa_LinhaDeArquivoGerada);
                     break;
                 default:
-                    throw new NotImplementedException("Arquivo não implementado.");
+                    throw new NotImplementedException("Arquivo nÃ£o implementado.");
             }
 
         }
@@ -64,7 +64,7 @@ namespace BoletoNet
 
         #region Propriedades
         /// <summary>
-        /// Número do convênio
+        /// NÃºmero do convÃªnio
         /// <remarks>
         /// Apenas alguns bancos trabalham com esse conceito.
         /// </remarks>
@@ -72,14 +72,14 @@ namespace BoletoNet
         public virtual string NumeroConvenio { get; set; }
 
         /// <summary>
-        /// Número do arquivo de remessa
+        /// NÃºmero do arquivo de remessa
         /// </summary>
         public virtual int NumeroArquivoRemessa { get; set; }
 
         /// <summary>
         /// Boletos
         /// <remarks>
-        /// Lista com os boletos para geração do arquivo
+        /// Lista com os boletos para geraÃ§Ã£o do arquivo
         /// </remarks>
         /// </summary>
         public virtual Boletos Boletos { get; protected set; }
@@ -106,15 +106,15 @@ namespace BoletoNet
         public virtual TipoArquivo TipoArquivo { get; protected set; }
         #endregion
 
-        #region Métodos
+        #region MÃ©todos
         /// <summary>
-        /// Método que fará a verificação se a classe está devidamente implementada para a geração da Remessa
+        /// MÃ©todo que farÃ¡ a verificaÃ§Ã£o se a classe estÃ¡ devidamente implementada para a geraÃ§Ã£o da Remessa
         /// </summary>
-        /// <param name="numeroConvenio">Número do Convênio</param>
+        /// <param name="numeroConvenio">NÃºmero do ConvÃªnio</param>
         /// <param name="banco">Banco</param>
         /// <param name="cedente">Dados do Cedente</param>
-        /// <param name="boletos">Lista com Boletos para geração da remessa</param>
-        /// <param name="numeroArquivoRemessa">Número do arquivo da remessa</param>
+        /// <param name="boletos">Lista com Boletos para geraÃ§Ã£o da remessa</param>
+        /// <param name="numeroArquivoRemessa">NÃºmero do arquivo da remessa</param>
         /// <param name="mensagem">Mensagem</param>
         /// <returns></returns>
         public virtual bool ValidarArquivoRemessa(string numeroConvenio, IBanco banco, Cedente cedente, Boletos boletos, int numeroArquivoRemessa, out string mensagem)
@@ -132,12 +132,12 @@ namespace BoletoNet
         /// <summary>
         /// Gera o arquivo de remessa
         /// </summary>
-        /// <param name="numeroConvenio">Número do Convênio</param>
+        /// <param name="numeroConvenio">NÃºmero do ConvÃªnio</param>
         /// <param name="banco">Banco</param>
         /// <param name="cedente">Dados do Cedente</param>
-        /// <param name="boletos">Lista com Boletos para geração da remessa</param>
+        /// <param name="boletos">Lista com Boletos para geraÃ§Ã£o da remessa</param>
         /// <param name="arquivo">Arquivo (Stream / File)</param>
-        /// <param name="numeroArquivoRemessa">Número do arquivo da remessa</param>
+        /// <param name="numeroArquivoRemessa">NÃºmero do arquivo da remessa</param>
         public virtual void GerarArquivoRemessa(string numeroConvenio, IBanco banco, Cedente cedente, Boletos boletos, Stream arquivo, int numeroArquivoRemessa)
         {
             this.Banco = banco;

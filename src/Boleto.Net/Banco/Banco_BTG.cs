@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using BoletoNet.Excecoes;
 using BoletoNet.Util;
 
 namespace BoletoNet
@@ -15,8 +16,7 @@ namespace BoletoNet
         }
 
         public override string GerarHeaderRemessa(string numeroConvenio, Cedente cedente, TipoArquivo tipoArquivo,
-            int numeroArquivoRemessa,
-            Boleto boletos)
+            int numeroArquivoRemessa)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace BoletoNet
                 throw new Exception("Erro durante a geração do HEADER do arquivo de REMESSA.", ex);
             }
         }
-
+        
         public override string GerarHeaderLoteRemessa(string numeroConvenio, Cedente cedente, int numeroArquivoRemessa,
             TipoArquivo tipoArquivo)
         {
@@ -164,7 +164,7 @@ namespace BoletoNet
                 var header = new StringBuilder();
                 header.Append(this.Codigo); // Código do banco
                 header.Append("0000"); // lote de serviço, sempre 0000
-                header.Append("3"); // tipo de registro, sempre 3
+                header.Append("0"); // tipo de registro, sempre 3
                 header.Append(Utils.FormatCode("", " ", 9)); // uso exclusivo, 9 espaços
                 header.Append(cedente.CPFCNPJ.Length == 11 ? "1" : "2"); // tipo de inscrição
                 header.Append(Utils.FormatCode(cedente.CPFCNPJ, "0", 14, true)); // inscrição
@@ -208,9 +208,10 @@ namespace BoletoNet
                 header.Append(" "); // uso exclusivo
                 header.Append(cedente.CPFCNPJ.Length == 11 ? "1" : "2"); // tipo de inscrição
                 header.Append(Utils.FormatCode(cedente.CPFCNPJ, "0", 15, true)); // inscrição
-                header.Append(Utils.FormatCode(cedente.Convenio.ToString(), "0", 20, true)); // convênio
+                header.Append(Utils.FormatCode(cedente.Convenio.ToString(), " ", 20)); // convênio
                 header.Append(Utils.FormatCode(cedente.ContaBancaria.Agencia, "0", 5, true)); // agência
-                header.Append(Utils.FormatCode(cedente.ContaBancaria.Conta, "0", 11, true)); // conta
+                header.Append(Utils.FormatCode(cedente.ContaBancaria.DigitoAgencia, " ", 1)); // dígito da agência
+                header.Append(Utils.FormatCode(cedente.ContaBancaria.Conta, "0", 12, true)); // conta
                 header.Append(cedente.ContaBancaria.DigitoConta); // dígito verificador da conta
                 header.Append(" "); // uso exclusivo
                 header.Append(Utils.FormatCode(cedente.Nome, " ", 30)); // nome da empresa
@@ -273,28 +274,29 @@ namespace BoletoNet
                     true);
 
                 //Dígito verificador da coop/ag/conta ==> 037 - 037
-                _segmentoP += " ";
+                _segmentoP += "0";
 
                 boleto.Valida();
 
                 //Nosso número ==> 038 - 057
                 ////_segmentoP += Utils.FitStringLength(boleto.NossoNumero.Replace("-", "").Replace("/", ""), 20, 20, ' ', 0, true, true, true);
-                _segmentoP += boleto.NossoNumero.Replace("-", "").Replace("/", "").PadRight(20, ' ');
+                var nossoNumero = boleto.NossoNumero.Replace("-", "").Replace("/", "").PadRight(20, ' ');
+                _segmentoP += Utils.FormatCode(nossoNumero, " ", 20);
 
                 //Carteira ==> 058 - 058
                 _segmentoP += "1";
 
                 //Forma de cad. do título no banco ==> 059 - 059
-                _segmentoP += "1";
+                _segmentoP += "0";
 
                 //Tipo de documento ==> 060 - 060
-                _segmentoP += "1";
+                _segmentoP += "0";
 
                 //Ident. emissão do boleto ==> 061 - 061
-                _segmentoP += "2";
+                _segmentoP += "0";
 
                 //Identificação da distribuição ==> 062 - 062
-                _segmentoP += "2";
+                _segmentoP += "0";
 
                 //Nº do documento ==> 063 - 077
                 _segmentoP += Utils.FitStringLength(boleto.NumeroDocumento, 15, 15, ' ', 0, true, true, false);
@@ -643,7 +645,7 @@ namespace BoletoNet
                 throw new Exception("Erro durante a geração do SEGMENTO R DO DETALHE do arquivo de REMESSA.", ex);
             }
         }
-        
+
         public override string GerarTrailerLoteRemessa(int numeroRegistro)
         {
             try
@@ -675,7 +677,7 @@ namespace BoletoNet
                 throw new Exception("Erro durante a geração do registro TRAILER do LOTE de REMESSA.", e);
             }
         }
-        
+
         public override string GerarTrailerArquivoRemessa(int numeroRegistro)
         {
             try
@@ -712,6 +714,234 @@ namespace BoletoNet
             {
                 throw new Exception("Erro durante a geração do registro TRAILER do ARQUIVO de REMESSA.", e);
             }
+        }
+
+        public override void ValidaBoleto(Boleto boleto)
+        {
+            //Formata o tamanho do número da agência
+            if (boleto.Cedente.ContaBancaria.Agencia.Length < 4)
+                boleto.Cedente.ContaBancaria.Agencia = Utils.FormatCode(boleto.Cedente.ContaBancaria.Agencia, 4);
+
+            //Formata o tamanho do número da conta corrente
+            if (boleto.Cedente.ContaBancaria.Conta.Length < 5)
+                boleto.Cedente.ContaBancaria.Conta = Utils.FormatCode(boleto.Cedente.ContaBancaria.Conta, 5);
+
+            //Atribui o nome do banco ao local de pagamento
+            if (boleto.LocalPagamento == "Até o vencimento, preferencialmente no ")
+                boleto.LocalPagamento += Nome;
+            else boleto.LocalPagamento = "PAGÁVEL PREFERENCIALMENTE NAS AGÊNCIAS DO BANCO BTG";
+
+            //Verifica se data do processamento é valida
+            if (boleto.DataProcessamento == DateTime.MinValue) // diegomodolo (diego.ribeiro@nectarnet.com.br)
+                boleto.DataProcessamento = DateTime.Now;
+
+            //Verifica se data do documento é valida
+            if (boleto.DataDocumento == DateTime.MinValue) // diegomodolo (diego.ribeiro@nectarnet.com.br)
+                boleto.DataDocumento = DateTime.Now;
+
+            string infoFormatoCodigoCedente =
+                "formato AAAAPPCCCCC, onde: AAAA = Número da agência, PP = Posto do beneficiário, CCCCC = Código do beneficiário";
+
+            var codigoCedente = Utils.FormatCode(boleto.Cedente.Codigo, 11);
+
+            if (string.IsNullOrEmpty(codigoCedente))
+                throw new BoletoNetException("Código do cedente deve ser informado, " + infoFormatoCodigoCedente);
+
+            var conta = boleto.Cedente.ContaBancaria.Conta;
+            if (boleto.Cedente.ContaBancaria != null &&
+                (!codigoCedente.StartsWith(boleto.Cedente.ContaBancaria.Agencia) ||
+                 !(codigoCedente.EndsWith(conta) || codigoCedente.EndsWith(conta.Substring(0, conta.Length - 1)))))
+                boleto.Cedente.Codigo = string.Format("{0}{1}{2}", boleto.Cedente.ContaBancaria.Agencia,
+                    boleto.Cedente.ContaBancaria.OperacaConta, Utils.Right((boleto.Cedente.Codigo), 5, '0', true));
+
+            FormataCodigoBarra(boleto);
+            if (boleto.CodigoBarra.Codigo.Length != 44)
+                throw new BoletoNetException("Código de barras é inválido");
+
+            FormataLinhaDigitavel(boleto);
+            FormataNossoNumero(boleto);
+        }
+
+        public override void FormataCodigoBarra(Boleto boleto)
+        {
+            string valorBoleto = boleto.ValorBoleto.ToString("f").Replace(",", "").Replace(".", "");
+            valorBoleto = Utils.FormatCode(valorBoleto, 10);
+
+            var codigoCobranca = 1; //Código de cobrança com registro
+            var nossoNumero = boleto.Carteira + boleto.NossoNumero;
+            
+            string cmp_livre =
+                boleto.Cedente.ContaBancaria.Agencia +
+                boleto.Cedente.Carteira +
+                Utils.FormatCode(nossoNumero, 11) +
+                Utils.FormatCode(boleto.Cedente.ContaBancaria.Conta, 7) + "0";
+
+            var codigoTemp = GerarCodigoDeBarras(boleto, valorBoleto, cmp_livre);
+            
+            string dv_cmpLivre = Mod11(codigoTemp).ToString();
+
+            codigoTemp = GerarCodigoDeBarras(boleto, valorBoleto, cmp_livre, int.Parse(dv_cmpLivre));
+            
+            boleto.CodigoBarra.CampoLivre = cmp_livre;
+            boleto.CodigoBarra.FatorVencimento = FatorVencimento(boleto);
+            boleto.CodigoBarra.Moeda = 9;
+            boleto.CodigoBarra.ValorDocumento = valorBoleto;
+
+            boleto.CodigoBarra.Codigo = GerarCodigoDeBarras(boleto, valorBoleto, cmp_livre, int.Parse(dv_cmpLivre));
+        }
+
+        private string GerarCodigoDeBarras(Boleto boleto, string valorBoleto, string cmp_livre, int? dv_geral = null)
+        {
+            return string.Format("{0}{1}{2}{3}{4}{5}",
+                Utils.FormatCode(this.Codigo.ToString(), 3),
+                boleto.Moeda,
+                dv_geral.HasValue ? dv_geral.Value.ToString() : string.Empty,
+                FatorVencimento(boleto),
+                valorBoleto,
+                cmp_livre);
+        }
+
+        public override void FormataLinhaDigitavel(Boleto boleto)
+        {
+            //041M2.1AAAd1  CCCCC.CCNNNd2  NNNNN.041XXd3  V FFFF9999999999
+
+            string campo1 = this.Codigo.ToString() + boleto.Moeda.ToString() +
+                            boleto.CodigoBarra.Codigo.Substring(19, 5);
+            int d1 = Mod10(campo1);
+            campo1 = FormataCampoLD(campo1) + d1.ToString();
+
+            string campo2 = boleto.CodigoBarra.Codigo.Substring(24, 10);
+            int d2 = Mod10(campo2);
+            campo2 = FormataCampoLD(campo2) + d2.ToString();
+
+            string campo3 = boleto.CodigoBarra.Codigo.Substring(34, 10);
+            int d3 = Mod10(campo3);
+            campo3 = FormataCampoLD(campo3) + d3.ToString();
+
+            var campo4 = boleto.CodigoBarra.Codigo.Substring(0, 4) + boleto.CodigoBarra.Codigo.Substring(6);
+
+            string dvCampo4 = CalcularDV(boleto.CodigoBarra.Codigo).ToString();
+
+            string campo5 = boleto.CodigoBarra.Codigo.Substring(5, 14);
+
+            boleto.CodigoBarra.LinhaDigitavel = campo1 + " " + campo2 + " " + campo3 + " " + dvCampo4 + " " + campo5;
+        }
+
+        private string FormataCampoLD(string campo)
+        {
+            return string.Format("{0}.{1}", campo.Substring(0, 5), campo.Substring(5));
+        }
+
+        public override void FormataNossoNumero(Boleto boleto)
+        {
+            boleto.NossoNumero = string.Format("{0}/{1}", boleto.Carteira, boleto.NossoNumero);
+        }
+
+        public static int Mod10(string input)
+        {
+            var sum = input.Reverse()
+                .Select((c, i) => ((c - '0') * (i % 2 == 0 ? 2 : 1))
+                    .ToString())
+                .SelectMany(c => c)
+                .Sum(c => c - '0');
+
+            var mod = sum % 10;
+            return mod == 0 ? 0 : 10 - mod;
+        }
+
+        public static int CalcularDV(string codigoDeBarras)
+        {
+            // Verifica se o código de barras possui 44 caracteres
+            if (codigoDeBarras.Length != 44)
+                throw new ArgumentException("O código de barras deve ter 44 posições.");
+
+            // Extrai as posições que serão utilizadas para o cálculo (1 a 4 e 6 a 44)
+            var codigoParaCalculo = codigoDeBarras.Substring(0, 4) + codigoDeBarras.Substring(5, 39);
+
+            // Verifica se todas as posições são dígitos
+            if (!codigoParaCalculo.All(char.IsDigit))
+                throw new ArgumentException("O código de barras deve conter apenas dígitos.");
+
+            // Converte as posições do código de barras em uma lista de inteiros
+            var digitos = codigoParaCalculo.Select(c => int.Parse(c.ToString())).ToList();
+
+            // Define os multiplicadores de 2 a 9
+            int[] multiplicadores = { 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // Inverte a lista de dígitos para começar a multiplicar do final
+            digitos.Reverse();
+
+            // Calcula a soma dos produtos dos dígitos pelos seus respectivos multiplicadores
+            int soma = digitos
+                .Select((digito, index) => digito * multiplicadores[index % multiplicadores.Length])
+                .Sum();
+
+            // Calcula o resto da divisão da soma por 11
+            int resto = soma % 11;
+
+            // Calcula o DV conforme as regras fornecidas
+            int dv = 11 - resto;
+
+            if (dv == 0 || dv == 10 || dv == 11)
+                dv = 1;
+
+            return dv;
+        }
+
+        public static int Mod11(string input)
+        {
+            // Converte as posições do código de barras em uma lista de inteiros
+            var digitos = input.Select(c => int.Parse(c.ToString())).ToList();
+
+            // Define os multiplicadores de 2 a 9
+            int[] multiplicadores = { 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // Inverte a lista de dígitos para começar a multiplicar do final
+            digitos.Reverse();
+
+            // Calcula a soma dos produtos dos dígitos pelos seus respectivos multiplicadores
+            int soma = digitos
+                       .Select((digito, index) => digito * multiplicadores[index % multiplicadores.Length])
+                       .Sum();
+
+            // Calcula o resto da divisão da soma por 11
+            int resto = soma % 11;
+
+            // Calcula o DV conforme as regras fornecidas
+            int dv = 11 - resto;
+
+            if (dv == 0 || dv == 10 || dv == 11)
+                dv = 1;
+
+            return dv;
+        }
+
+        public int CalcularDigitoBTG(string seq)
+        {
+            /* Variáveis
+             * -------------
+             * d - Dígito
+             * s - Soma
+             * p - Peso
+             * b - Base
+             * r - Resto
+             */
+
+            int d, s = 0, p = 2, b = 9;
+
+            for (int i = seq.Length - 1; i >= 0; i--)
+            {
+                s = s + (Convert.ToInt32(seq.Substring(i, 1)) * p);
+                if (p < b)
+                    p = p + 1;
+                else
+                    p = 2;
+            }
+
+            d = 11 - (s % 11);
+            if (d > 9)
+                d = 0;
+            return d;
         }
     }
 }

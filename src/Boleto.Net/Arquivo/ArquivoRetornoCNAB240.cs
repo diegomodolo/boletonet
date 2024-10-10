@@ -48,7 +48,7 @@ namespace BoletoNet
         }
         #endregion
 
-        #region MÈtodos de inst‚ncia
+        #region M√©todos de inst√¢ncia
 
         public void LerArquivoRetorno(IBanco banco)
         {
@@ -92,15 +92,15 @@ namespace BoletoNet
                                 }
                                 else if (linha.Substring(13, 1) == "T")
                                 {
-                                    //Ir· ler o Segmento T e em sequencia o Segmento U
+                                    //Ir√° ler o Segmento T e em sequencia o Segmento U
                                     detalheRetorno.SegmentoT = banco.LerDetalheSegmentoTRetornoCNAB240(linha);
                                     linha = stream.ReadLine();
                                     detalheRetorno.SegmentoU = banco.LerDetalheSegmentoURetornoCNAB240(linha);
 
                                     OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);
                                 }
-                                // as linhas abaixo foram comentadas a pedido do Bruno/Gabriel para atender cen·rio do cliente
-                                // Conceito RaÁıes
+                                // as linhas abaixo foram comentadas a pedido do Bruno/Gabriel para atender cen√°rio do cliente
+                                // Conceito Ra√ß√µes
                                 // else if (linha.Substring(13, 1) == "Y")
                                 // {
                                 //     detalheRetorno.SegmentoY = banco.LerDetalheSegmentoYRetornoCNAB240(linha);
