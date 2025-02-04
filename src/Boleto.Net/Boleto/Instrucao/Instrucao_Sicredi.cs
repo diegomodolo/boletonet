@@ -22,7 +22,7 @@ namespace BoletoNet
         AlteracaoOutrosDados_DescontoAntecipacao = 313,
         AlteracaoOutrosDados_DataLimiteDesconto = 314,
         AlteracaoOutrosDados_CancelamentoProtestoAutomatico = 315,
-        //AlteracaoOutrosDados_CarteiraDeCobranca = 316,  não disponivel...
+        //AlteracaoOutrosDados_CarteiraDeCobranca = 316,  nÃ£o disponivel...
 
 
         OutrasInstrucoes_ExibeMensagem_DescontoPontualidade = 899,
@@ -83,13 +83,13 @@ namespace BoletoNet
                 {
                     case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_MoraDiaria:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
-                        this.Descricao = String.Format("  - APÓS VENCIMENTO COBRAR JUROS DE {0} {1} POR DIA DE ATRASO",
+                        this.Descricao = String.Format("  - APÃ“S VENCIMENTO COBRAR JUROS DE {0} {1} POR DIA DE ATRASO",
                             (tipoValor.Equals(EnumTipoValor.Reais) ? "R$ " : valor.ToString("F3")),
                             (tipoValor.Equals(EnumTipoValor.Percentual) ? "%" : valor.ToString("F2")));
                         break;
                     case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_MultaVencimento:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
-                        this.Descricao = String.Format("  - APÓS VENCIMENTO COBRAR MULTA DE {0} {1}",
+                        this.Descricao = String.Format("  - APÃ“S VENCIMENTO COBRAR MULTA DE {0} {1}",
                             (tipoValor.Equals(EnumTipoValor.Reais) ? "R$ " : valor.ToString("F2")),
                             (tipoValor.Equals(EnumTipoValor.Percentual) ? "%" : valor.ToString("F2")));
                         break;
@@ -99,16 +99,16 @@ namespace BoletoNet
                         break;
                     case EnumInstrucoes_Sicredi.AlteracaoOutrosDados_DescontoAntecipacao:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
-                        this.Descricao = "  - CONCEDER DESCONTO DE R$ " + valor + "POR DIA DE ANTECIPAÇÃO";
+                        this.Descricao = "  - CONCEDER DESCONTO DE R$ " + valor + "POR DIA DE ANTECIPAÃ‡ÃƒO";
                         break;
                     case EnumInstrucoes_Sicredi.AlteracaoOutrosDados_JuroDia:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.AlteracaoOutrosDados;
-                        this.Descricao = "  - APÓS VENCIMENTO COBRAR JURO DE " + valor + "% POR DIA DE ATRASO";
+                        this.Descricao = "  - APÃ“S VENCIMENTO COBRAR JURO DE " + valor + "% POR DIA DE ATRASO";
                         break;
 
                     case EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.OutrasInstrucoes_ExibeMensagem_DescontoPontualidade;
-                        this.Descricao = " - ATÉ O VENCIMENTO CONCEDER DESCONTO DE R$" + valor;
+                        this.Descricao = " - ATÃ‰ O VENCIMENTO CONCEDER DESCONTO DE R$" + valor;
                         break;
 
                     default:
@@ -154,7 +154,7 @@ namespace BoletoNet
                         break;
                     case EnumInstrucoes_Sicredi.PedidoProtesto:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.PedidoProtesto;
-                        this.Descricao = "  - PROTESTAR APÓS " + nrDias + " DIAS ÚTEIS DO VENCIMENTO";
+                        this.Descricao = "  - PROTESTAR APÃ“S " + nrDias + " DIAS ÃšTEIS DO VENCIMENTO";
                         break;
                     case EnumInstrucoes_Sicredi.SustarProtestoBaixarTitulo:
                         this.Codigo = (int)EnumInstrucoes_Sicredi.SustarProtestoBaixarTitulo;

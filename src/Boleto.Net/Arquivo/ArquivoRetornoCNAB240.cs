@@ -61,9 +61,13 @@ namespace BoletoNet
             {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
                 string linha = "";
+<<<<<<< HEAD
 
                 DetalheRetornoCNAB240 detalheAnterior = null;
 
+=======
+                string numeroRemessa = string.Empty;
+>>>>>>> upstream/master
                 while ((linha = stream.ReadLine()) != null)
                 {
                     if (!string.IsNullOrEmpty(linha))
@@ -74,9 +78,16 @@ namespace BoletoNet
                         {
                             case "0": //Header de arquivo
                                 OnLinhaLida(null, linha, EnumTipodeLinhaLida.HeaderDeArquivo);
+                                detalheRetorno.HeaderArquivo.LerHeaderDeArquivoCNAB240(linha);
+                                numeroRemessa = detalheRetorno.HeaderArquivo.NumeroRemessa;
                                 break;
                             case "1": //Header de lote
                                 OnLinhaLida(null, linha, EnumTipodeLinhaLida.HeaderDeLote);
+                                this.DetalheRetorno = new DetalheRetorno();
+                                this.DetalheRetorno.CodigoBanco = int.Parse(linha.Substring(0, 3));
+                                this.DetalheRetorno.NumeroSequencial = int.Parse(linha.Substring(183, 8));
+                                if (!string.IsNullOrWhiteSpace(numeroRemessa) && (this.DetalheRetorno.NumeroSequencial == 0 || banco.Codigo == 748))
+                                    this.DetalheRetorno.NumeroSequencial = int.Parse(numeroRemessa);
                                 break;
                             case "3": //Detalhe
                                 if (linha.Substring(13, 1) == "W")
@@ -98,6 +109,10 @@ namespace BoletoNet
                                     detalheRetorno.SegmentoU = banco.LerDetalheSegmentoURetornoCNAB240(linha);
 
                                     OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
                                 }
                                 // as linhas abaixo foram comentadas a pedido do Bruno/Gabriel para atender cenário do cliente
                                 // Conceito Rações

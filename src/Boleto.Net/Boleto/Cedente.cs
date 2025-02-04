@@ -86,7 +86,7 @@ namespace BoletoNet
         #region Propriedades
 
         /// <summary>
-        /// Código do Cedente
+        /// CÃ³digo do Cedente
         /// </summary>
         public string Codigo
         {
@@ -138,14 +138,14 @@ namespace BoletoNet
             {
                 string o = value.Replace(".", "").Replace("-", "").Replace("/", "");
                 if (o == null || (o.Length != 11 && o.Length != 14))
-                    throw new ArgumentException("O CPF/CNPJ inválido. Utilize 11 dígitos para CPF ou 14 para CNPJ.");
+                    throw new ArgumentException("O CPF/CNPJ invÃ¡lido. Utilize 11 dÃ­gitos para CPF ou 14 para CNPJ.");
 
                 _cpfcnpj = value;
             }
         }
 
         /// <summary>
-        /// Retona o CPF ou CNPJ do Cedente (com máscara)
+        /// Retona o CPF ou CNPJ do Cedente (com mÃ¡scara)
         /// </summary>
         public string CPFCNPJcomMascara
         {
@@ -186,7 +186,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Número do Convênio
+        /// NÃºmero do ConvÃªnio
         /// </summary>
         public long Convenio
         {
@@ -201,7 +201,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Número sequencial para geração de remessa
+        /// NÃºmero sequencial para geraÃ§Ã£o de remessa
         /// </summary>
         public int NumeroSequencial
         {
@@ -216,7 +216,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Código de Transmissão para geração de remessa
+        /// CÃ³digo de TransmissÃ£o para geraÃ§Ã£o de remessa
         /// </summary>
         public string CodigoTransmissao
         {
@@ -231,7 +231,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Número bordero do cliente
+        /// NÃºmero bordero do cliente
         /// </summary>
         public int NumeroBordero
         {
@@ -246,7 +246,7 @@ namespace BoletoNet
         }
 
         /// <summary>
-        /// Número da Carteira
+        /// NÃºmero da Carteira
         /// </summary>
         public string Carteira
         {
