@@ -61,13 +61,11 @@ namespace BoletoNet
             {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
                 string linha = "";
-<<<<<<< HEAD
 
                 DetalheRetornoCNAB240 detalheAnterior = null;
 
-=======
                 string numeroRemessa = string.Empty;
->>>>>>> upstream/master
+
                 while ((linha = stream.ReadLine()) != null)
                 {
                     if (!string.IsNullOrEmpty(linha))
@@ -109,10 +107,6 @@ namespace BoletoNet
                                     detalheRetorno.SegmentoU = banco.LerDetalheSegmentoURetornoCNAB240(linha);
 
                                     OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/master
                                 }
                                 // as linhas abaixo foram comentadas a pedido do Bruno/Gabriel para atender cenário do cliente
                                 // Conceito Rações
