@@ -58,15 +58,14 @@ namespace BoletoNet
         public override void LerArquivoRetorno(IBanco banco, Stream arquivo)
         {
             try
-             {
+            {
                 StreamReader stream = new StreamReader(arquivo, System.Text.Encoding.UTF8);
                 string linha = "";
 
                 DetalheRetornoCNAB240 detalheAnterior = null;
 
-                DetalheRetornoCNAB240 detalheAnterior = null;
-
                 string numeroRemessa = string.Empty;
+
                 while ((linha = stream.ReadLine()) != null)
                 {
                     if (!string.IsNullOrEmpty(linha))
@@ -108,23 +107,8 @@ namespace BoletoNet
                                     detalheRetorno.SegmentoU = banco.LerDetalheSegmentoURetornoCNAB240(linha);
 
                                     OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoU);
+
                                 }
-                                // as linhas abaixo foram comentadas a pedido do Bruno/Gabriel para atender cenário do cliente
-                                // Conceito Rações
-                                // else if (linha.Substring(13, 1) == "Y")
-                                // {
-                                //     detalheRetorno.SegmentoY = banco.LerDetalheSegmentoYRetornoCNAB240(linha);
-                                //
-                                //     if (detalheAnterior != null)
-                                //     {
-                                //         detalheAnterior.SegmentoY = detalheRetorno.SegmentoY;
-                                //     }
-                                //
-                                //     OnLinhaLida(detalheRetorno, linha, EnumTipodeLinhaLida.DetalheSegmentoY);
-                                // }
-
-                                detalheAnterior = detalheRetorno;
-
                                 ListaDetalhes.Add(detalheRetorno);
                                 break;
                             case "5": //Trailler de lote

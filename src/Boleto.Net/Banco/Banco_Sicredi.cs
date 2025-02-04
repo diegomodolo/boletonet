@@ -134,7 +134,7 @@ namespace BoletoNet
 
             if (nossoNumero == null || nossoNumero.Length != 9)
             {
-                throw new Exception("Erro ao tentar formatar nosso n�mero, verifique o tamanho do campo");
+                throw new Exception("Erro ao tentar formatar nosso Número, verifique o tamanho do campo");
             }
 
             try
@@ -353,7 +353,7 @@ namespace BoletoNet
              *  -> "D" digito verificador
              *    
              */
-            
+
             string vAuxNossoNumeroComDV = boleto.NossoNumero;
             if (string.IsNullOrEmpty(boleto.DigitoNossoNumero) || boleto.NossoNumero.Length < 9)
             {
@@ -745,6 +745,7 @@ namespace BoletoNet
                 header += "01600";
                 header += Utils.FormatCode("", " ", 69);
                 header = Utils.SubstituiCaracteresEspeciais(header);
+                //Retorno
                 return header;
                 ////<\BRUNO.GUIMARAES>
 
