@@ -102,11 +102,8 @@
     <Compile Include="Arquivo\Reader\TextPosAttribute.cs" />
     <Compile Include="Arquivo\Reader\TextPosReader.cs" />
     <Compile Include="Banco\AbstractBanco.cs" />
-<<<<<<< HEAD
     <Compile Include="Banco\Banco_BTG.cs" />
-=======
     <Compile Include="Banco\Banco_Inter.cs" />
->>>>>>> upstream/master
     <Compile Include="Banco\Banco_C6.cs" />
     <Compile Include="Banco\Banco_CrediSis.cs" />
     <Compile Include="Banco\Banco_Daycoval.cs" />
@@ -132,11 +129,8 @@
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicoob.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicredi.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Banestes.cs" />
-<<<<<<< HEAD
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_BTG.cs" />
-=======
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Inter.cs" />
->>>>>>> upstream/master
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_C6.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_CrediSIS.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Safra.cs" />
