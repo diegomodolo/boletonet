@@ -185,15 +185,15 @@ namespace BoletoNet
 					case ((int)Enums.Bancos.C6Bank):
 						_IBanco = new Banco_C6();
 						break;
+					case 208:
+						_IBanco = new Banco_BTG();
+						break;
 					//77 - Banco Inter
                     case 77:
                         _IBanco = new Banco_Inter();
                         break;
-					case 208:
-						_IBanco = new Banco_BTG();
-						break;
-					default:
-						throw new Exception("Código do banco não implementando: " + codigoBanco);					
+                    default:
+						throw new Exception("Código do banco não implementando: " + codigoBanco);
 				}
 			}
 			catch (Exception ex)

@@ -129,8 +129,8 @@
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicoob.cs" />
     <Compile Include="Boleto\CodigoMovimento\CodigoMovimento_Sicredi.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Banestes.cs" />
-    <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Inter.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_BTG.cs" />
+    <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Inter.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_C6.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_CrediSIS.cs" />
     <Compile Include="Boleto\EspecieDocumento\EspecieDocumento_Safra.cs" />
