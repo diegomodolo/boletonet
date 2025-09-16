@@ -209,7 +209,7 @@ namespace BoletoNet
                     diasProtesto = string.Empty;
                 }
 
-                reg.CamposEDI.Add(new TCampoRegistroEDI(TTiposDadoEDI.ediNumericoSemSeparador_, 0107, 002, 0, diasProtesto, '0'));
+                reg.CamposEDI.Add(new TCampoRegistroEDI(TTiposDadoEDI.ediNumericoSemSeparador_, 0106, 002, 0, diasProtesto, '0')); // era 107
 
 
                 switch (boleto.Carteira)
@@ -562,9 +562,9 @@ namespace BoletoNet
             //Atribui o nome do banco ao local de pagamento
             if (string.IsNullOrEmpty(boleto.LocalPagamento))
             {
-                boleto.LocalPagamento = "At� o vencimento, preferencialmente no " + this.Nome;
+                boleto.LocalPagamento = "Até o vencimento, preferencialmente no " + this.Nome;
             }
-            else if (boleto.LocalPagamento == "At� o vencimento, preferencialmente no ")
+            else if (boleto.LocalPagamento == "Até o vencimento, preferencialmente no ")
             {
                 boleto.LocalPagamento += this.Nome;
             }
@@ -942,8 +942,6 @@ namespace BoletoNet
 
             for (var i = texto.Length - 1; i >= 0; i--)
             {
-
-
                 var result = Convert.ToInt32(texto.Substring(i, 1)) * peso;
                 if (result > 9 && peso == 2)
                 {

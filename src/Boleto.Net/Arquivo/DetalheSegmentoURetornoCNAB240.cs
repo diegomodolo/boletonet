@@ -185,7 +185,8 @@ namespace BoletoNet
                 //DataOcorrencia = Convert.ToDateTime(dataOcorrencia.ToString("##-##-####"));
                 DataOcorrencia = DateTime.ParseExact(dataOcorrencia, "ddMMyyyy", CultureInfo.InvariantCulture);
                 string dataCredito = registro.Substring(145, 8);
-                if (!string.IsNullOrWhiteSpace(dataCredito) && dataCredito != "00000000")
+
+                if (!string.IsNullOrEmpty(dataCredito.Trim()) && (dataCredito) != "00000000")
                 {
                     //DataCredito = Convert.ToDateTime(dataCredito.ToString("##-##-####"));
                     DataCredito = DateTime.ParseExact(dataCredito, "ddMMyyyy", CultureInfo.InvariantCulture);
