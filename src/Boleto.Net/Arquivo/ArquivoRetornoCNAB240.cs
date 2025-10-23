@@ -82,10 +82,10 @@ namespace BoletoNet
                             case "1": //Header de lote
                                 OnLinhaLida(null, linha, EnumTipodeLinhaLida.HeaderDeLote);
                                 this.DetalheRetorno = new DetalheRetorno();
-                                this.DetalheRetorno.CodigoBanco = int.Parse(linha.Substring(0, 3));
-                                this.DetalheRetorno.NumeroSequencial = int.Parse(linha.Substring(183, 8));
+                                this.DetalheRetorno.CodigoBanco = int.TryParse(linha.Substring(0, 3), out var codigoBanco) ? codigoBanco : banco.Codigo;
+                                this.DetalheRetorno.NumeroSequencial = int.TryParse(linha.Substring(183, 8), out var sequencialHeaderLote) ? sequencialHeaderLote : 0;
                                 if (!string.IsNullOrWhiteSpace(numeroRemessa) && (this.DetalheRetorno.NumeroSequencial == 0 || banco.Codigo == 748))
-                                    this.DetalheRetorno.NumeroSequencial = int.Parse(numeroRemessa);
+                                    this.DetalheRetorno.NumeroSequencial = int.TryParse(numeroRemessa, out var numeroRemessaInt) ? numeroRemessaInt : 0;
                                 break;
                             case "3": //Detalhe
                                 if (linha.Substring(13, 1) == "W")
